@@ -1,5 +1,6 @@
 package mods.battlegear2.client.utils;
 
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
 import static net.minecraftforge.client.IItemRenderer.ItemRenderType.EQUIPPED;
 import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3D;
 
@@ -8,8 +9,8 @@ import mods.battlegear2.api.ISheathed;
 import mods.battlegear2.api.RenderPlayerEventChild.*;
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.core.IOffhandRender;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
 import mods.battlegear2.api.shield.IArrowDisplay;
 import mods.battlegear2.api.shield.IShield;
 import mods.battlegear2.client.BattlegearClientTickHandeler;
@@ -347,7 +348,7 @@ public final class BattlegearRenderHelper {
     public static void updateEquippedItem(ItemRenderer itemRenderer, Minecraft mc) {
         IOffhandRender offhandRender = (IOffhandRender) itemRenderer;
         offhandRender.setPrevEquippedOffHandProgress(offhandRender.getEquippedOffHandProgress());
-        int slot = mc.thePlayer.inventory.currentItem + InventoryPlayerBattle.WEAPON_SETS;
+        int slot = mc.thePlayer.inventory.currentItem + WEAPON_SETS;
         EntityPlayer var1 = mc.thePlayer;
         ItemStack var2 = ((IBattlePlayer) var1).isBattlemode() ? var1.inventory.getStackInSlot(slot) : dummyStack;
 
@@ -390,7 +391,7 @@ public final class BattlegearRenderHelper {
             float offhandSwing = 0.0F;
 
             if (player.isBattlemode()) {
-                ItemStack offhand = ((InventoryPlayerBattle) ((EntityPlayer) entity).inventory)
+                ItemStack offhand = ((IBattlegearInventoryPlayer) ((EntityPlayer) entity).inventory)
                         .getCurrentOffhandWeapon();
                 if (offhand != null && offhand.getItem() instanceof IShield) {
                     offhandSwing = (float) player.getSpecialActionTimer()
@@ -430,7 +431,7 @@ public final class BattlegearRenderHelper {
 
     public static void renderItemIn3rdPerson(EntityPlayer par1EntityPlayer, ModelBiped modelBipedMain, float frame) {
 
-        ItemStack var21 = ((InventoryPlayerBattle) par1EntityPlayer.inventory).getCurrentOffhandWeapon();
+        ItemStack var21 = ((IBattlegearInventoryPlayer) par1EntityPlayer.inventory).getCurrentOffhandWeapon();
 
         if (var21 != null) {
 

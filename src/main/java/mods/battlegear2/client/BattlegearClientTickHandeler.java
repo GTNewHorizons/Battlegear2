@@ -6,8 +6,8 @@ import mods.battlegear2.api.EnchantmentHelper;
 import mods.battlegear2.api.PlayerEventChild;
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.core.IOffhandRender;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
 import mods.battlegear2.api.quiver.QuiverArrowRegistry;
 import mods.battlegear2.api.shield.IShield;
 import mods.battlegear2.api.weapons.IExtendedReachWeapon;
@@ -45,6 +45,9 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 
+import static mods.battlegear2.api.core.Constants.OFFSET;
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
+
 public final class BattlegearClientTickHandeler {
 
     private static final int FLASH_MAX = 30;
@@ -54,7 +57,7 @@ public final class BattlegearClientTickHandeler {
     private float blockBar = 1;
     private float partialTick;
     private boolean wasBlocking = false;
-    private int previousBattlemode = InventoryPlayerBattle.OFFSET;
+    private int previousBattlemode = OFFSET;
     private int previousNormal = 0;
     private int flashTimer;
     private boolean specialDone = false, drawDone = false, inBattle = false;
@@ -85,7 +88,7 @@ public final class BattlegearClientTickHandeler {
                             Battlegear.packetHandler.sendPacketToServer(p);
                             ((IBattlePlayer) player).setSpecialActionTimer(2);
                         } else if (((IBattlePlayer) player).isBattlemode()) {
-                            ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+                            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
 
                             if (offhand != null && offhand.getItem() instanceof IShield) {
                                 float shieldBashPenalty = 0.33F - 0.06F
@@ -123,9 +126,9 @@ public final class BattlegearClientTickHandeler {
                     inBattle = ((IBattlePlayer) player).isBattlemode();
                 } else {
                     if (inBattle && !((IBattlePlayer) player).isBattlemode()) {
-                        for (int i = 0; i < InventoryPlayerBattle.WEAPON_SETS; ++i) {
+                        for (int i = 0; i < WEAPON_SETS; ++i) {
                             if (mc.gameSettings.keyBindsHotbar[i].getIsKeyPressed()) {
-                                previousBattlemode = InventoryPlayerBattle.OFFSET + i;
+                                previousBattlemode = OFFSET + i;
                             }
                         }
                         player.inventory.currentItem = previousBattlemode;
@@ -149,7 +152,7 @@ public final class BattlegearClientTickHandeler {
 
     public void tickStart(EntityPlayer player) {
         if (((IBattlePlayer) player).isBattlemode()) {
-            ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
             if (offhand != null) {
                 if (offhand.getItem() instanceof IShield) {
                     if (flashTimer == FLASH_MAX) {
@@ -241,7 +244,7 @@ public final class BattlegearClientTickHandeler {
             }
         }
         if (flag) {
-            offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+            offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
             PlayerEventChild.UseOffhandItemEvent useItemEvent = new PlayerEventChild.UseOffhandItemEvent(
                     new PlayerInteractEvent(
                             player,
@@ -331,7 +334,7 @@ public final class BattlegearClientTickHandeler {
     }
 
     public void tickEnd(EntityPlayer player) {
-        ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+        ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
         Battlegear.proxy.tryUseDynamicLight(player, offhand);
         // If we use a shield
         if (offhand != null && offhand.getItem() instanceof IShield) {
@@ -388,6 +391,6 @@ public final class BattlegearClientTickHandeler {
     }
 
     public static ItemStack getPreviousOffhand(EntityPlayer player) {
-        return player.inventory.getStackInSlot(INSTANCE.previousBattlemode + InventoryPlayerBattle.WEAPON_SETS);
+        return player.inventory.getStackInSlot(INSTANCE.previousBattlemode + WEAPON_SETS);
     }
 }

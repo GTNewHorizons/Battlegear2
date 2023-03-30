@@ -2,7 +2,7 @@ package mods.battlegear2.packet;
 
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.api.EnchantmentHelper;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.quiver.IArrowContainer2;
 import mods.battlegear2.api.quiver.QuiverArrowRegistry;
 import mods.battlegear2.api.quiver.SwapArrowEvent;
@@ -42,7 +42,7 @@ public final class SpecialActionPacket extends AbstractMBPacket {
 
         if (this.player != null) {
             if (entityHit instanceof EntityLivingBase) {
-                ItemStack offhand = ((InventoryPlayerBattle) this.player.inventory).getCurrentOffhandWeapon();
+                ItemStack offhand = ((IBattlegearInventoryPlayer) this.player.inventory).getCurrentOffhandWeapon();
                 if (offhand != null && offhand.getItem() instanceof IShield) {
                     if (entityHit.canBePushed()) {
                         double d0 = entityHit.posX - this.player.posX;

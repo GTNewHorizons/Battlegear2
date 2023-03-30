@@ -1,7 +1,7 @@
 package mods.battlegear2;
 
 import mods.battlegear2.api.PlayerEventChild;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.quiver.IArrowContainer2;
 import mods.battlegear2.api.quiver.IQuiverSelection;
 import mods.battlegear2.api.quiver.ISpecialBow;
@@ -38,7 +38,7 @@ public final class BowHookContainerClass2 {
 
         @Override
         public ItemStack getQuiverFor(ItemStack bow, EntityPlayer player) {
-            ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
             if (bow != offhand) return isLoadedContainer(offhand, bow, player) ? offhand : null;
             else {
                 offhand = player.getCurrentEquippedItem();

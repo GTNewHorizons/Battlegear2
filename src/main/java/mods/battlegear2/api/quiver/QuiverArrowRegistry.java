@@ -3,7 +3,7 @@ package mods.battlegear2.api.quiver;
 import java.util.*;
 
 import mods.battlegear2.api.ISensible;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.items.ItemQuiver;
 
 import net.minecraft.entity.EntityLivingBase;
@@ -124,7 +124,7 @@ public class QuiverArrowRegistry {
             ItemStack temp = getArrowContainer(bow, entityPlayer);
             if (temp != null) return temp;
         }
-        bow = ((InventoryPlayerBattle) entityPlayer.inventory).getCurrentOffhandWeapon();
+        bow = ((IBattlegearInventoryPlayer) entityPlayer.inventory).getCurrentOffhandWeapon();
         return bow != null ? getArrowContainer(bow, entityPlayer) : null;
     }
 
@@ -175,7 +175,7 @@ public class QuiverArrowRegistry {
         if (bow != null && bow.getItem() instanceof ISpecialBow) {
             return bow;
         }
-        return ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+        return ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
     }
 
     // Allows customization of fire handler list for custom bows

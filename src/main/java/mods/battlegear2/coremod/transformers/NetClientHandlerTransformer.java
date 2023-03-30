@@ -48,7 +48,7 @@ public final class NetClientHandlerTransformer extends TransformerBase {
                                 newList.add(
                                         new MethodInsnNode(
                                                 INVOKESTATIC,
-                                                "mods/battlegear2/api/core/InventoryPlayerBattle",
+                                                "mods/battlegear2/api/core/BattlegearUtils",
                                                 "isValidSwitch",
                                                 "(I)Z"));
                                 newList.add(new JumpInsnNode(IFEQ, label)); // "if equal" branch

@@ -3,7 +3,6 @@ package mods.battlegear2.packet;
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -46,7 +45,7 @@ public final class PickBlockPacket extends AbstractMBPacket {
                 e.printStackTrace();
                 return;
             }
-            if (InventoryPlayerBattle.isValidSwitch(slot)) {
+            if (BattlegearUtils.isValidSwitch(slot)) {
                 player.inventory.currentItem = slot;
                 if (player.capabilities.isCreativeMode
                         && !ItemStack.areItemStacksEqual(stack, player.getCurrentEquippedItem())) {

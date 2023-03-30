@@ -2,8 +2,8 @@ package mods.battlegear2.client.utils;
 
 import mods.battlegear2.api.RenderPlayerEventChild;
 import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
 
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemPotion;
@@ -26,7 +26,7 @@ public final class BattlegearClientUtils {
     public static boolean entityOtherPlayerIsItemInUseHook(EntityOtherPlayerMP player, boolean isItemInUse) {
         ItemStack itemStack = player.getCurrentEquippedItem();
         if (BattlegearUtils.isPlayerInBattlemode(player)) {
-            ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
             if (offhand != null && BattlegearUtils.usagePriorAttack(offhand, player, true)) itemStack = offhand;
         }
         if (!isItemInUse && player.isEating() && itemStack != null) {

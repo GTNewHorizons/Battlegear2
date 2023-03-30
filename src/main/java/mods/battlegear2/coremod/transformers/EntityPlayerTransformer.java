@@ -60,25 +60,7 @@ public final class EntityPlayerTransformer extends TransformerBase {
     boolean processMethods(List<MethodNode> methods) {
         int found = 0;
         for (MethodNode mn : methods) {
-            if (mn.name.equals("<init>")) {
-                logger.log(Level.INFO, "\tPatching constructor in EntityPlayer");
-                ListIterator<AbstractInsnNode> it = mn.instructions.iterator();
-
-                while (it.hasNext()) {
-                    AbstractInsnNode insn = it.next();
-                    if (insn instanceof TypeInsnNode) {
-                        if (((TypeInsnNode) insn).desc.equals(inventoryClassName)) {
-                            ((TypeInsnNode) insn).desc = "mods/battlegear2/api/core/InventoryPlayerBattle";
-                        }
-
-                    } else if (insn instanceof MethodInsnNode) {
-                        if (((MethodInsnNode) insn).owner.equals(inventoryClassName)) {
-                            ((MethodInsnNode) insn).owner = "mods/battlegear2/api/core/InventoryPlayerBattle";
-                        }
-                    }
-                }
-                found++;
-            } else if (mn.name.equals(onItemFinishMethodName) && mn.desc.equals(SIMPLEST_METHOD_DESC)) {
+            if (mn.name.equals(onItemFinishMethodName) && mn.desc.equals(SIMPLEST_METHOD_DESC)) {
                 sendPatchLog("onItemUseFinish");
                 InsnList newList = new InsnList();
                 ListIterator<AbstractInsnNode> it = mn.instructions.iterator();
@@ -185,7 +167,7 @@ public final class EntityPlayerTransformer extends TransformerBase {
         methods.add(
                 methods.size(),
                 generateSetter(entityPlayerClassName, "setSpecialActionTimer", "specialActionTimer", "I"));
-        return found == 5;
+        return found == 4;
     }
 
     private MethodNode generateIsBlockingWithShield() {

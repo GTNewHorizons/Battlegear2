@@ -1,7 +1,7 @@
 package mods.battlegear2;
 
 import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.items.ItemMBArrow;
 import mods.battlegear2.items.arrows.AbstractMBArrow;
 import mods.battlegear2.utils.BattlegearConfig;
@@ -98,7 +98,7 @@ public final class MobHookContainerClass {
                 }
             } else if (arrow.shootingEntity instanceof EntityPlayer) {
                 if (BattlegearUtils.isPlayerInBattlemode((EntityPlayer) arrow.shootingEntity)) {
-                    ItemStack offhand = ((InventoryPlayerBattle) ((EntityPlayer) arrow.shootingEntity).inventory)
+                    ItemStack offhand = ((IBattlegearInventoryPlayer) ((EntityPlayer) arrow.shootingEntity).inventory)
                             .getCurrentOffhandWeapon();
                     if (offhand != null && BattlegearUtils.isBow(offhand.getItem())) {
                         arrow.setPosition(

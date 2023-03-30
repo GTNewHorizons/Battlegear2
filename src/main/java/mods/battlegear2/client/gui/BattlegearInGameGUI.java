@@ -3,7 +3,7 @@ package mods.battlegear2.client.gui;
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.api.RenderItemBarEvent;
 import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.quiver.IArrowContainer2;
 import mods.battlegear2.api.quiver.QuiverArrowRegistry;
 import mods.battlegear2.api.shield.IShield;
@@ -25,6 +25,9 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.FMLClientHandler;
+
+import static mods.battlegear2.api.core.Constants.OFFSET;
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
 
 public class BattlegearInGameGUI extends Gui {
 
@@ -72,7 +75,7 @@ public class BattlegearInGameGUI extends Gui {
                 }
             }
 
-            ItemStack offhand = ((InventoryPlayerBattle) mc.thePlayer.inventory).getCurrentOffhandWeapon();
+            ItemStack offhand = ((IBattlegearInventoryPlayer) mc.thePlayer.inventory).getCurrentOffhandWeapon();
             if (offhand != null && offhand.getItem() instanceof IShield) {
                 event = new RenderItemBarEvent.ShieldBar(renderEvent, offhand);
                 if (!MinecraftForge.EVENT_BUS.post(event))
@@ -91,7 +94,7 @@ public class BattlegearInGameGUI extends Gui {
                 }
             }
             if (!quiverFound) {
-                mainhand = ((InventoryPlayerBattle) mc.thePlayer.inventory).getCurrentOffhandWeapon();
+                mainhand = ((IBattlegearInventoryPlayer) mc.thePlayer.inventory).getCurrentOffhandWeapon();
                 if (mainhand != null) {
                     ItemStack quiver = QuiverArrowRegistry.getArrowContainer(mainhand, mc.thePlayer);
                     if (quiver != null) {
@@ -115,7 +118,7 @@ public class BattlegearInGameGUI extends Gui {
 
         if (mc.thePlayer != null) {
             if (((IBattlePlayer) mc.thePlayer).isBattlemode()) this.drawTexturedModalRect(
-                    x + (mc.thePlayer.inventory.currentItem - InventoryPlayerBattle.OFFSET) * 20 - 1,
+                    x + (mc.thePlayer.inventory.currentItem - OFFSET) * 20 - 1,
                     y - 1,
                     0,
                     22,
@@ -123,10 +126,10 @@ public class BattlegearInGameGUI extends Gui {
                     SLOT_H);
             GL11.glEnable(GL12.GL_RESCALE_NORMAL);
             RenderHelper.enableGUIStandardItemLighting();
-            for (int i = 0; i < InventoryPlayerBattle.WEAPON_SETS; ++i) {
+            for (int i = 0; i < WEAPON_SETS; ++i) {
                 int varx = x + i * 20 + 3;
                 this.renderInventorySlot(
-                        i + InventoryPlayerBattle.OFFSET + (isMainHand ? 0 : InventoryPlayerBattle.WEAPON_SETS),
+                        i + OFFSET + (isMainHand ? 0 : WEAPON_SETS),
                         varx,
                         y + 3,
                         frame);

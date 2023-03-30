@@ -9,7 +9,8 @@ import java.util.List;
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.CommonProxy;
 import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.heraldry.IHeraldryItem;
 import mods.battlegear2.api.shield.IShield;
 import mods.battlegear2.client.gui.BattlegearGuiKeyHandler;
@@ -80,7 +81,7 @@ public final class ClientProxy extends CommonProxy {
     public void startFlash(EntityPlayer player, float damage) {
         if (player.getCommandSenderName().equals(Minecraft.getMinecraft().thePlayer.getCommandSenderName())) {
             BattlegearClientTickHandeler.resetFlash();
-            ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
+            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
 
             if (offhand != null && offhand.getItem() instanceof IShield) BattlegearClientTickHandeler
                     .reduceBlockTime(((IShield) offhand.getItem()).getDamageDecayRate(offhand, damage));

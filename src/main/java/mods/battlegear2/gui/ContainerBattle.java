@@ -1,7 +1,6 @@
 package mods.battlegear2.gui;
 
 import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
 import mods.battlegear2.packet.BattlegearSyncItemPacket;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +10,9 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import static mods.battlegear2.api.core.Constants.OFFSET;
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
 
 public class ContainerBattle extends ContainerLocalPlayer {
 
@@ -36,11 +38,11 @@ public class ContainerBattle extends ContainerLocalPlayer {
         }
 
         // Weapon Slots[40-45] even slots for main, odd slots for offhand
-        for (int x = 0; x < InventoryPlayerBattle.WEAPON_SETS; x++) {
-            WeaponSlot main = new WeaponSlot(inventoryPlayer, x + InventoryPlayerBattle.OFFSET, 78, 15 + x * 18, true);
+        for (int x = 0; x < WEAPON_SETS; x++) {
+            WeaponSlot main = new WeaponSlot(inventoryPlayer, x + OFFSET, 78, 15 + x * 18, true);
             WeaponSlot offhand = new WeaponSlot(
                     inventoryPlayer,
-                    x + InventoryPlayerBattle.OFFSET + InventoryPlayerBattle.WEAPON_SETS,
+                    x + OFFSET + WEAPON_SETS,
                     118,
                     15 + x * 18,
                     false);
@@ -53,7 +55,7 @@ public class ContainerBattle extends ContainerLocalPlayer {
         }
 
         // Cloak Slot [46]
-        // Slot cloakSlot = new ItemSlot(inventoryPlayer,InventoryPlayerBattle.EXTRA_ITEMS+InventoryPlayerBattle.OFFSET,
+        // Slot cloakSlot = new ItemSlot(inventoryPlayer,EXTRA_ITEMS+InventoryPlayerBattle.OFFSET,
         // 152 ,8, new int[]{BattlegearConfig.cloak.itemID});
         // cloakSlot.setBackgroundIconIndex(BattleGear.proxy.getBackgroundIcon(2));
         // this.addSlotToContainer(cloakSlot);

@@ -1,6 +1,6 @@
 package mods.battlegear2.items.arrows;
 
-import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.quiver.IArrowContainer2;
 import mods.battlegear2.api.quiver.QuiverArrowRegistry;
 import mods.battlegear2.items.ItemMBArrow;
@@ -27,7 +27,7 @@ public abstract class AbstractMBArrow extends EntityArrow {
     }
 
     public AbstractMBArrow(World par1World, EntityLivingBase par2EntityLivingBase,
-            EntityLivingBase par3EntityLivingBase, float par4, float par5) {
+                           EntityLivingBase par3EntityLivingBase, float par4, float par5) {
         super(par1World, par2EntityLivingBase, par3EntityLivingBase, par4, par5);
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractMBArrow extends EntityArrow {
 
     /**
      * Helper generation method for skeletons
-     * 
+     *
      * @param type     the new type of the arrow
      * @param arrow    the original arrow fired by the skeleton
      * @param skeleton the shooter
@@ -64,11 +64,11 @@ public abstract class AbstractMBArrow extends EntityArrow {
                         EntityLivingBase.class,
                         float.class,
                         float.class).newInstance(
-                                arrow.worldObj,
-                                skeleton,
-                                skeleton.getAttackTarget(),
-                                1.6F,
-                                (float) (14 - skeleton.worldObj.difficultySetting.getDifficultyId() * 4));
+                        arrow.worldObj,
+                        skeleton,
+                        skeleton.getAttackTarget(),
+                        1.6F,
+                        (float) (14 - skeleton.worldObj.difficultySetting.getDifficultyId() * 4));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -97,23 +97,21 @@ public abstract class AbstractMBArrow extends EntityArrow {
 
     /**
      * The actual act of picking up an arrow, taken out of the colliding event, just in case
-     * 
+     *
      * @param player trying to pick up the arrow
      * @return false if the arrow couldn't be added to the player inventory
      */
     public boolean tryPickArrow(EntityPlayer player) {
         ItemStack arrow = getPickedUpItem();
         if (arrow != null) {
-            if (player.inventory instanceof InventoryPlayerBattle) {
-                ItemStack offhand = ((InventoryPlayerBattle) player.inventory).getCurrentOffhandWeapon();
-                if (offhand != null && offhand.getItem() instanceof IArrowContainer2) {
-                    final int size = arrow.stackSize;
-                    ItemStack arrowLeft = ((IArrowContainer2) offhand.getItem()).addArrows(offhand, arrow);
-                    if (arrowLeft == null || arrowLeft.stackSize < size) {
-                        if (arrowLeft != null && arrowLeft.stackSize > 0)
-                            worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY, posZ, arrowLeft));
-                        return true;
-                    }
+            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
+            if (offhand != null && offhand.getItem() instanceof IArrowContainer2) {
+                final int size = arrow.stackSize;
+                ItemStack arrowLeft = ((IArrowContainer2) offhand.getItem()).addArrows(offhand, arrow);
+                if (arrowLeft == null || arrowLeft.stackSize < size) {
+                    if (arrowLeft != null && arrowLeft.stackSize > 0)
+                        worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY, posZ, arrowLeft));
+                    return true;
                 }
             }
         }
@@ -122,7 +120,7 @@ public abstract class AbstractMBArrow extends EntityArrow {
 
     /**
      * Could be abstracted, but using the registry is easier
-     * 
+     *
      * @return the stack to be picked up, if any
      */
     public ItemStack getPickedUpItem() {

@@ -1,10 +1,11 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+
+import static mods.battlegear2.api.core.Constants.EXTRA_ITEMS;
+import static mods.battlegear2.api.core.Constants.OFFSET;
 
 public class ContainerHeraldry extends ContainerLocalPlayer {
 
@@ -14,19 +15,19 @@ public class ContainerHeraldry extends ContainerLocalPlayer {
         this.addSlotToContainer(
                 new HeraldrySlot(
                         inventoryPlayer,
-                        InventoryPlayerBattle.OFFSET + InventoryPlayerBattle.EXTRA_ITEMS + 1,
+                        OFFSET + EXTRA_ITEMS + 1,
                         -40,
                         -22));
         this.addSlotToContainer(
                 new HeraldrySlot(
                         inventoryPlayer,
-                        InventoryPlayerBattle.OFFSET + InventoryPlayerBattle.EXTRA_ITEMS + 2,
+                        OFFSET + EXTRA_ITEMS + 2,
                         -20,
                         -22));
         this.addSlotToContainer(
                 new HeraldrySlot(
                         inventoryPlayer,
-                        InventoryPlayerBattle.OFFSET + InventoryPlayerBattle.EXTRA_ITEMS + 3,
+                        OFFSET + EXTRA_ITEMS + 3,
                         0,
                         -22));
         // Default bar
