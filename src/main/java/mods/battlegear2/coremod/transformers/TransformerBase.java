@@ -52,7 +52,7 @@ public abstract class TransformerBase implements IClassTransformer, Opcodes {
             boolean success = processFields(cn.fields) && processMethods(cn.methods);
             addInterface(cn.interfaces);
 
-            ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+            ClassWriter cw = new ClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
             cn.accept(cw);
 
             logger.log(

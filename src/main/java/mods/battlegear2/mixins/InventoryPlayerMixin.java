@@ -147,8 +147,9 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
                     }
                     cir.setReturnValue(targetStack);
                 }
+            } else {
+                cir.setReturnValue(null);
             }
-            cir.setReturnValue(null);
         }
     }
 
