@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import static org.spongepowered.asm.lib.Opcodes.PUTFIELD;
 
@@ -34,10 +35,22 @@ public abstract class EntityOtherPlayerMPMixin extends AbstractClientPlayer {
             if (offhand != null && BattlegearUtils.usagePriorAttack(offhand, player, true)) {
                 itemStack = offhand;
             }
+            if (!isItemInUse && this.isEating() && itemStack != null) {
+                this.setItemInUse(itemStack, itemStack.getMaxItemUseDuration());
+                isItemInUse = true;
+            } else if (isItemInUse && !this.isEating()) {
+                this.clearItemInUse();
+                isItemInUse = false;
+            }
+            ci.cancel();
         }
-        if (!isItemInUse && player.isEating() && itemStack != null) {
-            player.setItemInUse(itemStack, itemStack.getMaxItemUseDuration());
-            isItemInUse = true;
+    }
+
+    @Inject(method = "setCurrentItemOrArmor", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    protected void cancelIfInBattleMode(int slotIndex, ItemStack itemStack, CallbackInfo ci) {
+        EntityOtherPlayerMP player = (EntityOtherPlayerMP) (Object) this;
+        if (BattlegearUtils.isPlayerInBattlemode(player)) {
+            player.inventory.setInventorySlotContents(slotIndex, itemStack);
             ci.cancel();
         }
     }

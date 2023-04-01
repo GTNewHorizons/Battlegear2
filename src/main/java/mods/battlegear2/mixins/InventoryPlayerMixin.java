@@ -60,6 +60,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @Inject(method = "func_146030_a", at = @At("HEAD"), cancellable = true)
     protected void cancelIfInBattleMode(CallbackInfo ci) {
         if (isInBattleMode()) {
@@ -67,6 +68,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
+    @SideOnly(Side.CLIENT)
     @Inject(method = "changeCurrentItem", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
     protected void changeCurrentItemInBattleMode(int direction, CallbackInfo ci) {
         if (isInBattleMode()) {
