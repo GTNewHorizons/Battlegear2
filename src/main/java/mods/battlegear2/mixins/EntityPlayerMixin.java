@@ -43,13 +43,15 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
         prevOffhandSwingProgress = offhandSwingProgress;
         int animationEnd = getArmSwingAnimationEnd();
         if (isOffhandSwingInProgress) {
-            if (++offhandSwingProgressInt >= animationEnd) {
+            ++offhandSwingProgressInt;
+            if (offhandSwingProgressInt >= animationEnd) {
                 offhandSwingProgressInt = 0;
                 isOffhandSwingInProgress = false;
             }
         } else {
             offhandSwingProgressInt = 0;
         }
+        offhandSwingProgress = (float) offhandSwingProgressInt / (float) animationEnd;
         if (specialActionTimer > 0) {
             isOffhandSwingInProgress = false;
             isSwingInProgress = false;
@@ -57,8 +59,6 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
             offhandSwingProgressInt = 0;
             swingProgress = 0F;
             swingProgressInt = 0;
-        } else {
-            offhandSwingProgress = (float) offhandSwingProgressInt / (float) animationEnd;
         }
     }
 
@@ -171,10 +171,11 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
 
     @Override
     public float getOffhandSwingProgress(float frame) {
-        if (offhandSwingProgress - prevOffhandSwingProgress >= 0) {
-            return offhandSwingProgress + (offhandSwingProgress - prevOffhandSwingProgress) * frame;
+        float difference = offhandSwingProgress - prevOffhandSwingProgress;
+        if (difference < 0) {
+            difference++;
         }
-        return offhandSwingProgress + (offhandSwingProgress - prevOffhandSwingProgress + 1) * frame;
+        return prevOffhandSwingProgress + difference * frame;
     }
 
     @Override
