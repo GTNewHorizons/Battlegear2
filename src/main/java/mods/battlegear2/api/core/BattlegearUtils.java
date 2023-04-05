@@ -617,7 +617,7 @@ public class BattlegearUtils {
                     }
                     if (offAttackEvent.shouldAttack) {
                         ((IBattlePlayer) event.entityPlayer)
-                                .attackTargetEntityWithCurrentOffItem(offAttackEvent.getTarget());
+                                .attackTargetEntityWithCurrentOffhandItem(offAttackEvent.getTarget());
                     }
                     if (offAttackEvent.cancelParent) {
                         return true;
@@ -649,7 +649,7 @@ public class BattlegearUtils {
      */
     public static void sendOffSwingEvent(PlayerEvent event, ItemStack offhandItem) {
         if (!MinecraftForge.EVENT_BUS.post(new PlayerEventChild.OffhandSwingEvent(event, offhandItem))) {
-            ((IBattlePlayer) event.entityPlayer).swingOffItem();
+            ((IBattlePlayer) event.entityPlayer).swingOffhandItem();
         }
     }
 

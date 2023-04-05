@@ -6,7 +6,6 @@ import mods.battlegear2.api.*;
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
-import mods.battlegear2.api.core.InventoryExceptionEvent;
 
 import mods.battlegear2.api.heraldry.IFlagHolder;
 import mods.battlegear2.api.heraldry.IHeraldryItem;
@@ -102,7 +101,7 @@ public final class BattlemodeHookContainerClass {
         if (((IBattlePlayer) event.entityPlayer).getSpecialActionTimer() > 0) {
             event.setCanceled(true);
             event.entityPlayer.isSwingInProgress = false;
-        } else if (((IBattlePlayer) event.entityPlayer).isBattlemode()) {
+        } else if (((IBattlePlayer) event.entityPlayer).isInBattleMode()) {
             if (event.action == PlayerInteractEvent.Action.LEFT_CLICK_BLOCK) { // Left click
                 ItemStack mainHandItem = event.entityPlayer.getCurrentEquippedItem();
                 if (mainHandItem != null && mainHandItem.getItem() instanceof IHandListener) {
@@ -224,7 +223,7 @@ public final class BattlemodeHookContainerClass {
             event.setCanceled(true);
         }
         if (!MinecraftForge.EVENT_BUS.post(event)) {
-            ((IBattlePlayer) event.entityPlayer).swingOffItem();
+            ((IBattlePlayer) event.entityPlayer).swingOffhandItem();
         }
     }
 
@@ -424,7 +423,7 @@ public final class BattlemodeHookContainerClass {
                     && event.source.getEntity() instanceof IBattlePlayer
                     && !isFake(event.source.getEntity())) {
                 EntityPlayer player = (EntityPlayer) event.source.getEntity();
-                if (((IBattlePlayer) player).isBattlemode()) {
+                if (((IBattlePlayer) player).isInBattleMode()) {
                     stack = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
                     addLootFromEnchant(stack, event.drops);
                 }

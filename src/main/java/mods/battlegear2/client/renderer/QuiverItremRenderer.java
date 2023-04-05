@@ -75,7 +75,7 @@ public class QuiverItremRenderer implements IItemRenderer {
                         // Doesn't render sheathed
                         GL11.glPopMatrix();
                         return;
-                    } else if (livingBase instanceof IBattlePlayer && ((IBattlePlayer) livingBase).isBattlemode()) {
+                    } else if (livingBase instanceof IBattlePlayer && ((IBattlePlayer) livingBase).isInBattleMode()) {
                         // Doesn't render in battlemode
                         GL11.glPopMatrix();
                         return;

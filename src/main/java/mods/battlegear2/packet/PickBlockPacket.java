@@ -37,7 +37,7 @@ public final class PickBlockPacket extends AbstractMBPacket {
 
     @Override
     public void process(ByteBuf inputStream, EntityPlayer player) {
-        if (player != null && !((IBattlePlayer) player).isBattlemode()) {
+        if (player != null && !((IBattlePlayer) player).isInBattleMode()) {
             try {
                 slot = inputStream.readInt();
                 stack = ByteBufUtils.readItemStack(inputStream);

@@ -44,7 +44,7 @@ public final class BattlegearTickHandeler {
 
             }
             // Force update every 3 seconds
-            else if (((IBattlePlayer) entityPlayer).isBattlemode()
+            else if (((IBattlePlayer) entityPlayer).isInBattleMode()
                     && entityPlayer.ticksExisted % BattlegearConfig.updateRate == 0
                     && !entityPlayer.isUsingItem()) {
                         ((WorldServer) entityPlayer.worldObj).getEntityTracker().func_151248_b(

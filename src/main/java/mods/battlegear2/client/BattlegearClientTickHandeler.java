@@ -87,7 +87,7 @@ public final class BattlegearClientTickHandeler {
                                     .generatePacket();
                             Battlegear.packetHandler.sendPacketToServer(p);
                             ((IBattlePlayer) player).setSpecialActionTimer(2);
-                        } else if (((IBattlePlayer) player).isBattlemode()) {
+                        } else if (((IBattlePlayer) player).isInBattleMode()) {
                             ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
 
                             if (offhand != null && offhand.getItem() instanceof IShield) {
@@ -111,7 +111,7 @@ public final class BattlegearClientTickHandeler {
                         specialDone = false;
                     }
                     if (!drawDone && drawWeapons.getIsKeyPressed()) {
-                        if (((IBattlePlayer) player).isBattlemode()) {
+                        if (((IBattlePlayer) player).isInBattleMode()) {
                             previousBattlemode = player.inventory.currentItem;
                             player.inventory.currentItem = previousNormal;
                         } else {
@@ -123,9 +123,9 @@ public final class BattlegearClientTickHandeler {
                     } else if (drawDone && !drawWeapons.getIsKeyPressed()) {
                         drawDone = false;
                     }
-                    inBattle = ((IBattlePlayer) player).isBattlemode();
+                    inBattle = ((IBattlePlayer) player).isInBattleMode();
                 } else {
-                    if (inBattle && !((IBattlePlayer) player).isBattlemode()) {
+                    if (inBattle && !((IBattlePlayer) player).isInBattleMode()) {
                         for (int i = 0; i < WEAPON_SETS; ++i) {
                             if (mc.gameSettings.keyBindsHotbar[i].getIsKeyPressed()) {
                                 previousBattlemode = OFFSET + i;
@@ -151,7 +151,7 @@ public final class BattlegearClientTickHandeler {
     }
 
     public void tickStart(EntityPlayer player) {
-        if (((IBattlePlayer) player).isBattlemode()) {
+        if (((IBattlePlayer) player).isInBattleMode()) {
             ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
             if (offhand != null) {
                 if (offhand.getItem() instanceof IShield) {

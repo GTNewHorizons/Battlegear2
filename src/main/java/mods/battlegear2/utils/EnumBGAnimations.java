@@ -13,7 +13,7 @@ public enum EnumBGAnimations {
 
         @Override
         public void processAnimation(IBattlePlayer entity) {
-            entity.swingOffItem();
+            entity.swingOffhandItem();
         }
     },
     SpecialAction {

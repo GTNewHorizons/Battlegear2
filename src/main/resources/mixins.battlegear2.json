@@ -5,7 +5,7 @@
   "refmap": "mixins.battlegear2.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "mixins": ["InventoryPlayerMixin", "EntityAIControlledByPlayerMixin", "EntityOtherPlayerMPMixin"],
+  "mixins": ["InventoryPlayerMixin", "EntityAIControlledByPlayerMixin", "EntityOtherPlayerMPMixin", "EntityPlayerMixin"],
   "client": [],
   "server": []
 }

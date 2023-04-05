@@ -68,7 +68,7 @@ public class EntityLoveArrow extends AbstractMBArrow {
                     entityitem.delayBeforeCanPickup = PICKUP_TIME;
                     entityitem.func_145797_a(entityHit.getCommandSenderName());
                 }
-                if (!((IBattlePlayer) entityHit).isBattlemode())
+                if (!((IBattlePlayer) entityHit).isInBattleMode())
                     ((EntityPlayer) entityHit).inventory.setInventorySlotContents(
                             ((EntityPlayer) entityHit).inventory.currentItem,
                             new ItemStack(ItemMBArrow.component[5]));

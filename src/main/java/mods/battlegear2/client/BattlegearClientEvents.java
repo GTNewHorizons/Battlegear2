@@ -294,7 +294,7 @@ public final class BattlegearClientEvents {
             if (mc.thePlayer != null) {
                 if (event.button - 100 == mc.gameSettings.keyBindPickBlock.getKeyCode()) {
                     event.setCanceled(true);
-                    if (!((IBattlePlayer) mc.thePlayer).isBattlemode()) {
+                    if (!((IBattlePlayer) mc.thePlayer).isInBattleMode()) {
                         boolean isCreative = mc.thePlayer.capabilities.isCreativeMode;
                         ItemStack stack = getItemFromPointedAt(mc.objectMouseOver, mc.thePlayer);
                         if (stack != null) {

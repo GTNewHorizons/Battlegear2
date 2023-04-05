@@ -14,12 +14,12 @@ public interface IBattlePlayer {
     /**
      * A copied animation for the offhand, similar to {@link EntityPlayer#swingItem()}
      */
-    public void swingOffItem();
+    public void swingOffhandItem();
 
     /**
      * The partial render progress for the offhand swing animation
      */
-    public float getOffSwingProgress(float frame);
+    public float getOffhandSwingProgress(float frame);
 
     /**
      * Hotswap the {@link EntityPlayer} current item to offhand, behaves like
@@ -27,14 +27,14 @@ public interface IBattlePlayer {
      * 
      * @param target to attack
      */
-    public void attackTargetEntityWithCurrentOffItem(Entity target);
+    public void attackTargetEntityWithCurrentOffhandItem(Entity target);
 
     /**
      * Checks {@link IBattlegearInventoryPlayer#isInBattleMode()}, to see if current item is offset in the battle slots range
      * 
      * @return true if player has pressed the bound key to activate dual-wielding, resulting in current item offset
      */
-    public boolean isBattlemode();
+    public boolean isInBattleMode();
 
     /**
      * Helper for {@link IShield} usage

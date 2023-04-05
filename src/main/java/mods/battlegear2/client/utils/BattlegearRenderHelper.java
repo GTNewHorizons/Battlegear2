@@ -197,7 +197,7 @@ public final class BattlegearRenderHelper {
                             GL11.glRotatef(var12 * 30.0F, 0.0F, 0.0F, 1.0F);
                         }
                     } else {
-                        var20 = ((IBattlePlayer) player).getOffSwingProgress(frame);
+                        var20 = ((IBattlePlayer) player).getOffhandSwingProgress(frame);
                         var21 = MathHelper.sin(var20 * (float) Math.PI);
                         var10 = MathHelper.sin(MathHelper.sqrt_float(var20) * (float) Math.PI);
                         // Flip the (x direction)
@@ -213,7 +213,7 @@ public final class BattlegearRenderHelper {
                     GL11.glRotatef(-45.0F, 0.0F, 1.0F, 0.0F);
 
                     GL11.glEnable(GL12.GL_RESCALE_NORMAL);
-                    var20 = ((IBattlePlayer) player).getOffSwingProgress(frame);
+                    var20 = ((IBattlePlayer) player).getOffhandSwingProgress(frame);
 
                     var21 = MathHelper.sin(var20 * var20 * (float) Math.PI);
                     var10 = MathHelper.sin(MathHelper.sqrt_float(var20) * (float) Math.PI);
@@ -305,7 +305,7 @@ public final class BattlegearRenderHelper {
 
                 GL11.glScalef(-1.0F, 1.0F, 1.0F);
 
-                var20 = ((IBattlePlayer) player).getOffSwingProgress(frame);
+                var20 = ((IBattlePlayer) player).getOffhandSwingProgress(frame);
                 var21 = MathHelper.sin(var20 * (float) Math.PI);
                 var10 = MathHelper.sin(MathHelper.sqrt_float(var20) * (float) Math.PI);
                 GL11.glTranslatef(
@@ -350,7 +350,7 @@ public final class BattlegearRenderHelper {
         offhandRender.setPrevEquippedOffHandProgress(offhandRender.getEquippedOffHandProgress());
         int slot = mc.thePlayer.inventory.currentItem + WEAPON_SETS;
         EntityPlayer var1 = mc.thePlayer;
-        ItemStack var2 = ((IBattlePlayer) var1).isBattlemode() ? var1.inventory.getStackInSlot(slot) : dummyStack;
+        ItemStack var2 = ((IBattlePlayer) var1).isInBattleMode() ? var1.inventory.getStackInSlot(slot) : dummyStack;
 
         boolean sameItem = offhandRender.getEquippedItemOffhandSlot() == slot
                 && var2 == offhandRender.getOffHandItemToRender();
@@ -390,14 +390,14 @@ public final class BattlegearRenderHelper {
             IBattlePlayer player = (IBattlePlayer) entity;
             float offhandSwing = 0.0F;
 
-            if (player.isBattlemode()) {
+            if (player.isInBattleMode()) {
                 ItemStack offhand = ((IBattlegearInventoryPlayer) ((EntityPlayer) entity).inventory)
                         .getCurrentOffhandWeapon();
                 if (offhand != null && offhand.getItem() instanceof IShield) {
                     offhandSwing = (float) player.getSpecialActionTimer()
                             / (float) ((IShield) offhand.getItem()).getBashTimer(offhand);
                 } else {
-                    offhandSwing = player.getOffSwingProgress(frame);
+                    offhandSwing = player.getOffhandSwingProgress(frame);
                 }
             }
 
@@ -526,7 +526,7 @@ public final class BattlegearRenderHelper {
                     .post(new PostRenderPlayerElement(postRender, false, PlayerElementType.ItemOffhand, var21));
             GL11.glPopMatrix();
         } else {
-            if (!((IBattlePlayer) par1EntityPlayer).isBattlemode())
+            if (!((IBattlePlayer) par1EntityPlayer).isInBattleMode())
                 renderSheathedItems(par1EntityPlayer, modelBipedMain, frame);
         }
     }

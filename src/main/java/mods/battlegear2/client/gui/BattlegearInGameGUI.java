@@ -64,7 +64,7 @@ public class BattlegearInGameGUI extends Gui {
             RenderItemBarEvent event = new RenderItemBarEvent.BattleSlots(renderEvent, true);
 
             if (mc.thePlayer != null) {
-                if (((IBattlePlayer) mc.thePlayer).isBattlemode() || BattlegearConfig.alwaysShowBattleBar) {
+                if (((IBattlePlayer) mc.thePlayer).isInBattleMode() || BattlegearConfig.alwaysShowBattleBar) {
                     if (!MinecraftForge.EVENT_BUS.post(event)) {
                         renderBattleSlots(width / 2 + 121 + event.xOffset, height - 22 + event.yOffset, frame, true);
                     }
@@ -117,7 +117,7 @@ public class BattlegearInGameGUI extends Gui {
         drawTexturedModalRect(x + 31, y, 151, 0, 31, SLOT_H);
 
         if (mc.thePlayer != null) {
-            if (((IBattlePlayer) mc.thePlayer).isBattlemode()) this.drawTexturedModalRect(
+            if (((IBattlePlayer) mc.thePlayer).isInBattleMode()) this.drawTexturedModalRect(
                     x + (mc.thePlayer.inventory.currentItem - OFFSET) * 20 - 1,
                     y - 1,
                     0,
