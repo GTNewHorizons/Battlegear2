@@ -5,7 +5,13 @@
   "refmap": "mixins.battlegear2.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "mixins": ["InventoryPlayerMixin", "EntityAIControlledByPlayerMixin", "EntityOtherPlayerMPMixin", "EntityPlayerMixin"],
+  "mixins": [
+    "InventoryPlayerMixin",
+    "EntityAIControlledByPlayerMixin",
+    "EntityOtherPlayerMPMixin",
+    "EntityPlayerMixin",
+    "ItemInWorldManagerMixin"
+  ],
   "client": [],
   "server": []
 }
