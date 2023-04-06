@@ -20,12 +20,10 @@ public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
     public static final String NetClientHandlerTransformer = "mods.battlegear2.coremod.transformers.NetClientHandlerTransformer";
     public static final String NetServerHandlerTransformer = "mods.battlegear2.coremod.transformers.NetServerHandlerTransformer";
     public static final String PlayerControllerMPTransformer = "mods.battlegear2.coremod.transformers.PlayerControllerMPTransformer";
-    public static final String MinecraftTransformer = "mods.battlegear2.coremod.transformers.MinecraftTransformer";
     public static File debugOutputLocation;
 
     public static final String[] transformers = new String[]{ModelBipedTransformer,
             NetClientHandlerTransformer, NetServerHandlerTransformer, PlayerControllerMPTransformer,
-            MinecraftTransformer,
     };
 
     @Override

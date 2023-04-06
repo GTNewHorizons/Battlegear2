@@ -12,7 +12,8 @@
     "EntityPlayerMixin",
     "ItemInWorldManagerMixin",
     "ItemRendererMixin",
-    "ItemStackMixin"
+    "ItemStackMixin",
+    "MinecraftMixin"
   ],
   "client": [],
   "server": []
