@@ -10,7 +10,8 @@
     "EntityAIControlledByPlayerMixin",
     "EntityOtherPlayerMPMixin",
     "EntityPlayerMixin",
-    "ItemInWorldManagerMixin"
+    "ItemInWorldManagerMixin",
+    "ItemRendererMixin"
   ],
   "client": [],
   "server": []
