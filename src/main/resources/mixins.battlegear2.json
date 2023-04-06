@@ -11,7 +11,8 @@
     "EntityOtherPlayerMPMixin",
     "EntityPlayerMixin",
     "ItemInWorldManagerMixin",
-    "ItemRendererMixin"
+    "ItemRendererMixin",
+    "ItemStackMixin"
   ],
   "client": [],
   "server": []
