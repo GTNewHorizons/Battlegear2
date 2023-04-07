@@ -382,7 +382,7 @@ public final class BattlegearRenderHelper {
         }
     }
 
-    public static void moveOffHandArm(Entity entity, ModelBiped biped, float frame) {
+    public static void moveOffHandArm(Entity entity, ModelBiped biped) {
         if (entity instanceof IBattlePlayer) {
             IBattlePlayer player = (IBattlePlayer) entity;
             float offhandSwing = 0.0F;

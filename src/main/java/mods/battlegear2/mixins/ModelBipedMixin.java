@@ -15,6 +15,6 @@ public abstract class ModelBipedMixin {
     @Inject(method = "setRotationAngles", at = @At(value = "FIELD", target = "Lnet/minecraft/client/model/ModelBiped;isSneak:Z", opcode = GETFIELD))
     protected void moveOffhandArm(float p1, float p2, float p3, float p4, float p5, float p6, Entity p7, CallbackInfo ci) {
         ModelBiped modelBiped = (ModelBiped) (Object) this;
-        BattlegearRenderHelper.moveOffHandArm(p7, modelBiped, p6);
+        BattlegearRenderHelper.moveOffHandArm(p7, modelBiped);
     }
 }
