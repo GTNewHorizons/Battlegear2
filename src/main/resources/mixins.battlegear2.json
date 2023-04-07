@@ -13,7 +13,8 @@
     "ItemInWorldManagerMixin",
     "ItemRendererMixin",
     "ItemStackMixin",
-    "MinecraftMixin"
+    "MinecraftMixin",
+    "ModelBipedMixin"
   ],
   "client": [],
   "server": []
