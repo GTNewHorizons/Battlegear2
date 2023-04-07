@@ -14,7 +14,11 @@
     "ItemRendererMixin",
     "ItemStackMixin",
     "MinecraftMixin",
-    "ModelBipedMixin"
+    "ModelBipedMixin",
+    "ModelBaseMixin",
+    "RenderBipedMixin",
+    "RendererLivingEntityMixin",
+    "RenderPlayerMixin"
   ],
   "client": [],
   "server": []

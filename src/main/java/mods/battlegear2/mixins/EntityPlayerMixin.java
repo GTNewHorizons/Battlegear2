@@ -38,9 +38,13 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
     public boolean isShielding = false;
 
     @Override
-    protected void updateArmSwingProgress() {
-        super.updateArmSwingProgress();
+    public void onEntityUpdate() {
         prevOffhandSwingProgress = offhandSwingProgress;
+        super.onEntityUpdate();
+    }
+
+    @Inject(method = "updateEntityActionState", at = @At("RETURN"))
+    protected void updateOffhandArmSwingProgress(CallbackInfo ci) {
         int animationEnd = getArmSwingAnimationEnd();
         if (isOffhandSwingInProgress) {
             ++offhandSwingProgressInt;
@@ -101,7 +105,7 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
         return inventoryPlayer.getCurrentItem();
     }
 
-    @Inject(method = "setCurrentItemOrArmor", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "setCurrentItemOrArmor", at = @At("HEAD"), cancellable = true)
     protected void cancelIfInBattleMode(int slotIndex, ItemStack itemStack, CallbackInfo ci) {
         EntityPlayer player = (EntityPlayer) (Object) this;
         if (isInBattleMode()) {

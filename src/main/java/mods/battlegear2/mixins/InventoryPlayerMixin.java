@@ -69,7 +69,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
     }
 
     @SideOnly(Side.CLIENT)
-    @Inject(method = "changeCurrentItem", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "changeCurrentItem", at = @At("HEAD"), cancellable = true)
     protected void changeCurrentItemInBattleMode(int direction, CallbackInfo ci) {
         if (isInBattleMode()) {
             if (direction > 0) {
@@ -115,7 +115,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "consumeInventoryItem", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "consumeInventoryItem", at = @At("HEAD"), cancellable = true)
     protected void consumeFromNewStacks(Item item, CallbackInfoReturnable<Boolean> cir) {
         int j = getInventorySlotContainItem(item);
         if (j >= 0) {
@@ -127,13 +127,13 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "hasItem", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "hasItem", at = @At("HEAD"), cancellable = true)
     protected void hasItemInNewStacks(Item item, CallbackInfoReturnable<Boolean> cir) {
         int j = getInventorySlotContainItem(item);
         cir.setReturnValue(j >= 0);
     }
 
-    @Inject(method = "decrStackSize", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "decrStackSize", at = @At("HEAD"), cancellable = true)
     protected void decreaseNewStacksSize(int slot, int amount, CallbackInfoReturnable<ItemStack> cir) {
         if (slot >= OFFSET) {
             ItemStack targetStack = extraItems[slot - OFFSET];
@@ -155,14 +155,14 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "getStackInSlotOnClosing", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "getStackInSlotOnClosing", at = @At("HEAD"), cancellable = true)
     protected void getStackInNewSlotsOnClosing(int slot, CallbackInfoReturnable<ItemStack> cir) {
         if (slot >= OFFSET) {
             cir.setReturnValue(extraItems[slot - OFFSET]);
         }
     }
 
-    @Inject(method = "setInventorySlotContents", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "setInventorySlotContents", at = @At("HEAD"), cancellable = true)
     protected void setNewSlotsContents(int slot, ItemStack itemStack, CallbackInfo ci) {
         if (slot >= OFFSET) {
             hasChanged = true;
@@ -171,7 +171,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "func_146023_a", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "func_146023_a", at = @At("HEAD"), cancellable = true)
     protected void checkForBattleMode(Block block, CallbackInfoReturnable<Float> cir) {
         if (isInBattleMode()) {
             ItemStack currentItemStack = getCurrentItem();
@@ -179,7 +179,7 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "writeToNBT", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(method = "writeToNBT", at = @At("HEAD"))
     protected void writeNewSlotsToNBT(NBTTagList tagList, CallbackInfoReturnable<NBTTagList> cir) {
         for (int i = 0; i < extraItems.length; ++i) {
             if (extraItems[i] != null) {
@@ -204,14 +204,14 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "getStackInSlot", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "getStackInSlot", at = @At("HEAD"), cancellable = true)
     protected void getStackInNewSlots(int slot, CallbackInfoReturnable<ItemStack> cir) {
         if (slot >= OFFSET) {
             cir.setReturnValue(extraItems[slot - OFFSET]);
         }
     }
 
-    @Inject(method = "copyInventory", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(method = "copyInventory", at = @At("HEAD"))
     protected void copyNewSlots(InventoryPlayer inventoryPlayer, CallbackInfo ci) {
         extraItems = new ItemStack[EXTRA_INV_SIZE];
         for (int i = 0; i < extraItems.length; i++) {

@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import static org.spongepowered.asm.lib.Opcodes.PUTFIELD;
 
@@ -46,7 +45,7 @@ public abstract class EntityOtherPlayerMPMixin extends AbstractClientPlayer {
         }
     }
 
-    @Inject(method = "setCurrentItemOrArmor", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(method = "setCurrentItemOrArmor", at = @At("HEAD"), cancellable = true)
     protected void cancelIfInBattleMode(int slotIndex, ItemStack itemStack, CallbackInfo ci) {
         EntityOtherPlayerMP player = (EntityOtherPlayerMP) (Object) this;
         if (BattlegearUtils.isPlayerInBattlemode(player)) {

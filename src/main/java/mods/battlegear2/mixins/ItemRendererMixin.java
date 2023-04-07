@@ -10,7 +10,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin implements IOffhandRender {
@@ -28,7 +27,7 @@ public abstract class ItemRendererMixin implements IOffhandRender {
         BattlegearRenderHelper.updateEquippedItem(itemRenderer, mc);
     }
 
-    @Inject(method = "renderItemInFirstPerson", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(method = "renderItemInFirstPerson", at = @At("RETURN"))
     protected void renderOffhandItemInFirstPerson(float partialTicks, CallbackInfo ci) {
         ItemRenderer itemRenderer = (ItemRenderer) (Object) this;
         BattlegearRenderHelper.renderItemInFirstPerson(partialTicks, mc, itemRenderer);
