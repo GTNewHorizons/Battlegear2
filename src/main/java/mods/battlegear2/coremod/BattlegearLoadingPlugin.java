@@ -1,6 +1,5 @@
 package mods.battlegear2.coremod;
 
-import java.io.File;
 import java.util.Map;
 
 import mods.battlegear2.api.core.BattlegearTranslator;
@@ -10,11 +9,12 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.Name;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 
-@TransformerExclusions({"mods.battlegear2.coremod"})
+@TransformerExclusions({ "mods.battlegear2.coremod" })
 @Name("Mine and Blade: Battlegear2")
 @SortingIndex(1500)
 @MCVersion("1.7.10")
 public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
+
     @Override
     public String[] getASMTransformerClass() {
         return null;

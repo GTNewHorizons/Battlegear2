@@ -1,6 +1,7 @@
 package mods.battlegear2.api.core;
 
 import mods.battlegear2.api.shield.IShield;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -30,7 +31,8 @@ public interface IBattlePlayer {
     public void attackTargetEntityWithCurrentOffhandItem(Entity target);
 
     /**
-     * Checks {@link IBattlegearInventoryPlayer#isInBattleMode()}, to see if current item is offset in the battle slots range
+     * Checks {@link IBattlegearInventoryPlayer#isInBattleMode()}, to see if current item is offset in the battle slots
+     * range
      * 
      * @return true if player has pressed the bound key to activate dual-wielding, resulting in current item offset
      */

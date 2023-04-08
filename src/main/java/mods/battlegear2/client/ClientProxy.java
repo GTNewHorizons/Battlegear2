@@ -9,7 +9,6 @@ import java.util.List;
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.CommonProxy;
 import mods.battlegear2.api.core.BattlegearUtils;
-
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.heraldry.IHeraldryItem;
 import mods.battlegear2.api.shield.IShield;

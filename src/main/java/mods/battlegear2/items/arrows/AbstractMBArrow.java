@@ -27,7 +27,7 @@ public abstract class AbstractMBArrow extends EntityArrow {
     }
 
     public AbstractMBArrow(World par1World, EntityLivingBase par2EntityLivingBase,
-                           EntityLivingBase par3EntityLivingBase, float par4, float par5) {
+            EntityLivingBase par3EntityLivingBase, float par4, float par5) {
         super(par1World, par2EntityLivingBase, par3EntityLivingBase, par4, par5);
     }
 
@@ -64,11 +64,11 @@ public abstract class AbstractMBArrow extends EntityArrow {
                         EntityLivingBase.class,
                         float.class,
                         float.class).newInstance(
-                        arrow.worldObj,
-                        skeleton,
-                        skeleton.getAttackTarget(),
-                        1.6F,
-                        (float) (14 - skeleton.worldObj.difficultySetting.getDifficultyId() * 4));
+                                arrow.worldObj,
+                                skeleton,
+                                skeleton.getAttackTarget(),
+                                1.6F,
+                                (float) (14 - skeleton.worldObj.difficultySetting.getDifficultyId() * 4));
             } catch (Exception e) {
                 e.printStackTrace();
             }

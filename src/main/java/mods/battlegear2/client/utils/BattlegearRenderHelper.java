@@ -84,7 +84,7 @@ public final class BattlegearRenderHelper {
         if (offhandRender.getOffHandItemToRender() != dummyStack) {
             float progress = offhandRender.getPrevEquippedOffHandProgress()
                     + (offhandRender.getEquippedOffHandProgress() - offhandRender.getPrevEquippedOffHandProgress())
-                    * frame;
+                            * frame;
 
             EntityClientPlayerMP player = mc.thePlayer;
 
@@ -139,7 +139,7 @@ public final class BattlegearRenderHelper {
 
                     float swingProgress = (float) ((IBattlePlayer) player).getSpecialActionTimer()
                             / (float) ((IShield) offhandRender.getOffHandItemToRender().getItem())
-                            .getBashTimer(offhandRender.getOffHandItemToRender());
+                                    .getBashTimer(offhandRender.getOffHandItemToRender());
 
                     GL11.glTranslatef(
                             -0.7F * var7 + 0.25F * MathHelper.sin(swingProgress * (float) Math.PI),
@@ -398,7 +398,8 @@ public final class BattlegearRenderHelper {
                 }
             }
             if (offhandSwing > 0.0F) {
-                biped.bipedBody.rotateAngleY = -MathHelper.sin(MathHelper.sqrt_float(offhandSwing) * (float) Math.PI * 2.0F) * 0.2F;
+                biped.bipedBody.rotateAngleY = -MathHelper
+                        .sin(MathHelper.sqrt_float(offhandSwing) * (float) Math.PI * 2.0F) * 0.2F;
                 biped.bipedLeftArm.rotationPointZ = -MathHelper.sin(biped.bipedBody.rotateAngleY) * 5.0F;
                 biped.bipedLeftArm.rotationPointX = MathHelper.cos(biped.bipedBody.rotateAngleY) * 5.0F;
                 biped.bipedRightArm.rotationPointZ = MathHelper.sin(biped.bipedBody.rotateAngleY) * 5.0F;
@@ -412,8 +413,10 @@ public final class BattlegearRenderHelper {
                 offhandSwing *= offhandSwing;
                 offhandSwing = 1.0F - offhandSwing;
                 float i = MathHelper.sin(offhandSwing * (float) Math.PI);
-                float j = -MathHelper.sin(offhandSwing * (float) Math.PI) * (biped.bipedHead.rotateAngleX - 0.7F) * 0.75F;
-                biped.bipedLeftArm.rotateAngleX = (float) ((double) biped.bipedLeftArm.rotateAngleX - ((double) i * 1.2D + (double) j));
+                float j = -MathHelper.sin(offhandSwing * (float) Math.PI) * (biped.bipedHead.rotateAngleX - 0.7F)
+                        * 0.75F;
+                biped.bipedLeftArm.rotateAngleX = (float) ((double) biped.bipedLeftArm.rotateAngleX
+                        - ((double) i * 1.2D + (double) j));
                 biped.bipedLeftArm.rotateAngleY += biped.bipedBody.rotateAngleY * 2.0F;
                 biped.bipedLeftArm.rotateAngleZ = -MathHelper.sin(offhandSwing * (float) Math.PI) * -0.4F;
             }

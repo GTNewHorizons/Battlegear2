@@ -1,5 +1,8 @@
 package mods.battlegear2.client;
 
+import static mods.battlegear2.api.core.Constants.OFFSET;
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
+
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.BattlemodeHookContainerClass;
 import mods.battlegear2.api.EnchantmentHelper;
@@ -45,9 +48,6 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
 
-import static mods.battlegear2.api.core.Constants.OFFSET;
-import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
-
 public final class BattlegearClientTickHandeler {
 
     private static final int FLASH_MAX = 30;
@@ -88,7 +88,8 @@ public final class BattlegearClientTickHandeler {
                             Battlegear.packetHandler.sendPacketToServer(p);
                             ((IBattlePlayer) player).setSpecialActionTimer(2);
                         } else if (((IBattlePlayer) player).isInBattleMode()) {
-                            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
+                            ItemStack offhand = ((IBattlegearInventoryPlayer) player.inventory)
+                                    .getCurrentOffhandWeapon();
 
                             if (offhand != null && offhand.getItem() instanceof IShield) {
                                 float shieldBashPenalty = 0.33F - 0.06F

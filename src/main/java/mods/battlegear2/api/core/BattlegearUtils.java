@@ -1,5 +1,7 @@
 package mods.battlegear2.api.core;
 
+import static mods.battlegear2.api.core.Constants.*;
+
 import java.io.Closeable;
 import java.io.IOException;
 
@@ -40,8 +42,6 @@ import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 import cpw.mods.fml.common.eventhandler.EventBus;
 
-import static mods.battlegear2.api.core.Constants.*;
-
 /**
  * Store commonly used method, mostly for the {@link EntityPlayer} {@link ItemStack}s management
  */
@@ -54,19 +54,18 @@ public class BattlegearUtils {
     /**
      * Method names that are not allowed in {@link Item} subclasses for common wielding
      */
-    private static String[] itemBlackListMethodNames = {
-            BattlegearTranslator.getMapedMethodName("a", "onItemUse"),
+    private static String[] itemBlackListMethodNames = { BattlegearTranslator.getMapedMethodName("a", "onItemUse"),
             BattlegearTranslator.getMapedMethodName("onItemUseFirst", "onItemUseFirst"), // Added by Forge
-            BattlegearTranslator.getMapedMethodName("a", "onItemRightClick")};
+            BattlegearTranslator.getMapedMethodName("a", "onItemRightClick") };
     /**
      * Method arguments classes that are not allowed in {@link Item} subclasses for common wielding
      */
     private static Class[][] itemBlackListMethodParams = {
-            new Class[]{ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,
-                    float.class, float.class, float.class},
-            new Class[]{ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,
-                    float.class, float.class, float.class},
-            new Class[]{ItemStack.class, World.class, EntityPlayer.class}};
+            new Class[] { ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,
+                    float.class, float.class, float.class },
+            new Class[] { ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,
+                    float.class, float.class, float.class },
+            new Class[] { ItemStack.class, World.class, EntityPlayer.class } };
 
     private static ItemStack prevNotWieldable;
     /**
@@ -203,7 +202,7 @@ public class BattlegearUtils {
         if (main == null) return true;
         else if (main.getItem() instanceof IAllowItem) // An item using the API
             return ((IAllowItem) main.getItem()).allowOffhand(main, off); // defined by the item TODO pass through third
-            // parameter
+        // parameter
         else if (main.getItem() instanceof IArrowContainer2) // A quiver
             return true; // anything ?
         else if (usagePriorAttack(main, wielder, false)) // "Usable" item
@@ -338,8 +337,7 @@ public class BattlegearUtils {
             try {
                 c.getDeclaredMethod(itemBlackListMethodNames[i], itemBlackListMethodParams[i]);
                 return true;
-            } catch (Throwable ignored) {
-            }
+            } catch (Throwable ignored) {}
         }
         return false;
     }
@@ -411,7 +409,7 @@ public class BattlegearUtils {
      * @throws IOException
      */
     protected static void writeNBTTagCompound(NBTTagCompound par0NBTTagCompound,
-                                              ByteArrayDataOutput par1DataOutputStream) throws IOException {
+            ByteArrayDataOutput par1DataOutputStream) throws IOException {
         if (par0NBTTagCompound == null) {
             par1DataOutputStream.writeShort(-1);
         } else {
@@ -563,7 +561,7 @@ public class BattlegearUtils {
      * newly selected item
      *
      * @return true if any interaction happened, actually bypassing subsequent
-     * PlayerInteractEvent.Action.RIGHT_CLICK_AIR and PlayerControllerMP#sendUseItem on client side
+     *         PlayerInteractEvent.Action.RIGHT_CLICK_AIR and PlayerControllerMP#sendUseItem on client side
      */
     public static boolean interactWith(EntityPlayer entityPlayer, Entity entity) {
         final EntityInteractEvent event = new EntityInteractEvent(entityPlayer, entity);
@@ -710,7 +708,7 @@ public class BattlegearUtils {
      * @return the final resulting {@link ItemStack}
      */
     public static ItemStack beforeFinishUseEvent(EntityPlayer entityPlayer, ItemStack itemInUse, int itemInUseCount,
-                                                 ItemStack result, int previousStackSize) {
+            ItemStack result, int previousStackSize) {
         result = ForgeEventFactory.onItemUseFinish(entityPlayer, itemInUse, itemInUseCount, result);
         if (isPlayerInBattlemode(entityPlayer)) {
             if (result != itemInUse || (result != null && result.stackSize != previousStackSize)) {
@@ -721,13 +719,14 @@ public class BattlegearUtils {
                     } else {
                         setPlayerCurrentItem(entityPlayer, result);
                     }
-                } else if (itemInUse == ((IBattlegearInventoryPlayer) entityPlayer.inventory).getCurrentOffhandWeapon()) {
-                    if (result != null && result.stackSize == 0) {
-                        setPlayerOffhandItem(entityPlayer, null);
-                    } else {
-                        setPlayerOffhandItem(entityPlayer, result);
+                } else
+                    if (itemInUse == ((IBattlegearInventoryPlayer) entityPlayer.inventory).getCurrentOffhandWeapon()) {
+                        if (result != null && result.stackSize == 0) {
+                            setPlayerOffhandItem(entityPlayer, null);
+                        } else {
+                            setPlayerOffhandItem(entityPlayer, result);
+                        }
                     }
-                }
             }
             // Reset stuff so that vanilla doesn't do anything
             entityPlayer.clearItemInUse();

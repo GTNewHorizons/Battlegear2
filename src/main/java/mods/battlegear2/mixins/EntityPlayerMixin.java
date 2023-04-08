@@ -4,6 +4,7 @@ import mods.battlegear2.api.PlayerEventChild;
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
+
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,6 +25,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(EntityPlayer.class)
 public abstract class EntityPlayerMixin extends EntityLivingBase implements IBattlePlayer {
+
     public EntityPlayerMixin(World p_i1594_1_) {
         super(p_i1594_1_);
     }
@@ -66,8 +69,10 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
         }
     }
 
-    @Inject(method = "onItemUseFinish",
-            at = @At(value = "INVOKE_ASSIGN",
+    @Inject(
+            method = "onItemUseFinish",
+            at = @At(
+                    value = "INVOKE_ASSIGN",
                     target = "Lnet/minecraftforge/event/ForgeEventFactory;onItemUseFinish(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;ILnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;",
                     remap = false),
             locals = LocalCapture.CAPTURE_FAILEXCEPTION,
@@ -95,7 +100,11 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
         }
     }
 
-    @Redirect(method = "onUpdate", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/InventoryPlayer;getCurrentItem()Lnet/minecraft/item/ItemStack;"))
+    @Redirect(
+            method = "onUpdate",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/entity/player/InventoryPlayer;getCurrentItem()Lnet/minecraft/item/ItemStack;"))
     protected ItemStack redirectGetCurrentItemStack(InventoryPlayer inventoryPlayer) {
         if (isInBattleMode()) {
             ItemStack itemStack = ((IBattlegearInventoryPlayer) inventoryPlayer).getCurrentOffhandWeapon();
@@ -150,7 +159,9 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
                 BattlegearUtils.refreshAttributes(player, true);
                 EntityInteractEvent event = new EntityInteractEvent(player, entity);
                 ItemStack offhandItem = ((IBattlegearInventoryPlayer) player.inventory).getCurrentOffhandWeapon();
-                PlayerEventChild.OffhandAttackEvent offAttackEvent = new PlayerEventChild.OffhandAttackEvent(event, offhandItem);
+                PlayerEventChild.OffhandAttackEvent offAttackEvent = new PlayerEventChild.OffhandAttackEvent(
+                        event,
+                        offhandItem);
                 if (!MinecraftForge.EVENT_BUS.post(offAttackEvent)) {
                     if (offAttackEvent.swingOffhand) {
                         BattlegearUtils.sendOffSwingEvent(event, offAttackEvent.offHand);
@@ -168,7 +179,8 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
 
     @Override
     public void swingOffhandItem() {
-        if (!isOffhandSwingInProgress || offhandSwingProgressInt >= getArmSwingAnimationEnd() / 2 || offhandSwingProgressInt < 0) {
+        if (!isOffhandSwingInProgress || offhandSwingProgressInt >= getArmSwingAnimationEnd() / 2
+                || offhandSwingProgressInt < 0) {
             offhandSwingProgressInt = -1;
             isOffhandSwingInProgress = true;
         }

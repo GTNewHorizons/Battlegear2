@@ -1,9 +1,11 @@
 package mods.battlegear2.mixins;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import static mods.battlegear2.api.core.Constants.*;
+import static org.spongepowered.asm.lib.Opcodes.IFNULL;
+
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
 import mods.battlegear2.api.core.InventorySlotType;
+
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -11,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,11 +22,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import static mods.battlegear2.api.core.Constants.*;
-import static org.spongepowered.asm.lib.Opcodes.IFNULL;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 @Mixin(InventoryPlayer.class)
 public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer {
+
     @Shadow
     public int currentItem;
     @Shadow
@@ -90,7 +94,11 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         }
     }
 
-    @Inject(method = "clearInventory", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
+    @Inject(
+            method = "clearInventory",
+            at = @At("RETURN"),
+            locals = LocalCapture.CAPTURE_FAILEXCEPTION,
+            cancellable = true)
     protected void clearOffhandSlot(Item item, int filter, CallbackInfoReturnable<Integer> cir, int j) {
         int deleted = 0;
         for (int i = 0; i < extraItems.length; i++) {
@@ -197,8 +205,12 @@ public abstract class InventoryPlayerMixin implements IBattlegearInventoryPlayer
         extraItems = new ItemStack[EXTRA_INV_SIZE];
     }
 
-    @Inject(method = "readFromNBT", at = @At(value = "JUMP", opcode = IFNULL, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
-    protected void readNewSlotsFromNBT(NBTTagList tagList, CallbackInfo ci, int i, NBTTagCompound nbttagcompound, int j, ItemStack itemstack) {
+    @Inject(
+            method = "readFromNBT",
+            at = @At(value = "JUMP", opcode = IFNULL, shift = At.Shift.AFTER),
+            locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    protected void readNewSlotsFromNBT(NBTTagList tagList, CallbackInfo ci, int i, NBTTagCompound nbttagcompound, int j,
+            ItemStack itemstack) {
         if (j >= OFFSET && j < OFFSET + this.extraItems.length) {
             this.extraItems[j - OFFSET] = itemstack;
         }

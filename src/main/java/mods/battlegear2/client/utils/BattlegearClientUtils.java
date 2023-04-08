@@ -2,8 +2,8 @@ package mods.battlegear2.client.utils;
 
 import mods.battlegear2.api.RenderPlayerEventChild;
 import mods.battlegear2.api.core.BattlegearUtils;
-
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
+
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemPotion;

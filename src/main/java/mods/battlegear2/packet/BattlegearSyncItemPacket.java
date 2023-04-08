@@ -1,18 +1,18 @@
 package mods.battlegear2.packet;
 
+import static mods.battlegear2.api.core.Constants.EXTRA_INV_SIZE;
+import static mods.battlegear2.api.core.Constants.OFFSET;
+
 import mods.battlegear2.api.core.BattlegearUtils;
 import mods.battlegear2.api.core.IBattlePlayer;
-
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
-
-import static mods.battlegear2.api.core.Constants.EXTRA_INV_SIZE;
-import static mods.battlegear2.api.core.Constants.OFFSET;
 
 /**
  * User: nerd-boy Date: 26/06/13 Time: 1:40 PM
@@ -50,11 +50,8 @@ public final class BattlegearSyncItemPacket extends AbstractMBPacket {
 
                 for (int i = 0; i < EXTRA_INV_SIZE; i++) {
                     ItemStack stack = ByteBufUtils.readItemStack(inputStream);
-                    if (!ItemStack.areItemStacksEqual(
-                            this.player.inventory.getStackInSlot(OFFSET + i),
-                            stack)) {
-                        this.player.inventory
-                                .setInventorySlotContents(OFFSET + i, stack);
+                    if (!ItemStack.areItemStacksEqual(this.player.inventory.getStackInSlot(OFFSET + i), stack)) {
+                        this.player.inventory.setInventorySlotContents(OFFSET + i, stack);
                         ((IBattlegearInventoryPlayer) this.player.inventory).setHasChanged(false);
                     }
                 }

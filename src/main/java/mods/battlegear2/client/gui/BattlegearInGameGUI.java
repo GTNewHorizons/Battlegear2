@@ -1,5 +1,8 @@
 package mods.battlegear2.client.gui;
 
+import static mods.battlegear2.api.core.Constants.OFFSET;
+import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
+
 import mods.battlegear2.Battlegear;
 import mods.battlegear2.api.RenderItemBarEvent;
 import mods.battlegear2.api.core.IBattlePlayer;
@@ -25,9 +28,6 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.FMLClientHandler;
-
-import static mods.battlegear2.api.core.Constants.OFFSET;
-import static mods.battlegear2.api.core.Constants.WEAPON_SETS;
 
 public class BattlegearInGameGUI extends Gui {
 
@@ -128,11 +128,7 @@ public class BattlegearInGameGUI extends Gui {
             RenderHelper.enableGUIStandardItemLighting();
             for (int i = 0; i < WEAPON_SETS; ++i) {
                 int varx = x + i * 20 + 3;
-                this.renderInventorySlot(
-                        i + OFFSET + (isMainHand ? 0 : WEAPON_SETS),
-                        varx,
-                        y + 3,
-                        frame);
+                this.renderInventorySlot(i + OFFSET + (isMainHand ? 0 : WEAPON_SETS), varx, y + 3, frame);
             }
             RenderHelper.disableStandardItemLighting();
             GL11.glDisable(GL12.GL_RESCALE_NORMAL);

@@ -5,8 +5,8 @@ import mods.battlegear2.BattlemodeHookContainerClass;
 import mods.battlegear2.BukkitWrapper;
 import mods.battlegear2.api.PlayerEventChild;
 import mods.battlegear2.api.core.BattlegearUtils;
-
 import mods.battlegear2.api.core.IBattlegearInventoryPlayer;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

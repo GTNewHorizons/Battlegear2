@@ -5,6 +5,7 @@ package mods.battlegear2.api.core;
  * FMLDeobfuscatingRemapper) environments
  */
 public class BattlegearTranslator {
+
     public static boolean obfuscatedEnv;
 
     @Deprecated
