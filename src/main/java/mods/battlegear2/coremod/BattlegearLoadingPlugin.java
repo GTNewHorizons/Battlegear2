@@ -15,10 +15,6 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 @SortingIndex(1500)
 @MCVersion("1.7.10")
 public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
-
-    public static final String NetServerHandlerTransformer = "mods.battlegear2.coremod.transformers.NetServerHandlerTransformer";
-    public static File debugOutputLocation;
-
     @Override
     public String[] getASMTransformerClass() {
         return null;
@@ -42,7 +38,6 @@ public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
 
     @Override
     public void injectData(Map<String, Object> data) {
-        debugOutputLocation = new File(data.get("mcLocation").toString(), "bg edited classes");
         BattlegearTranslator.obfuscatedEnv = Boolean.class.cast(data.get("runtimeDeobfuscationEnabled"));
     }
 }

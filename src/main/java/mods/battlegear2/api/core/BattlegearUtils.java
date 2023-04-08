@@ -55,9 +55,9 @@ public class BattlegearUtils {
      * Method names that are not allowed in {@link Item} subclasses for common wielding
      */
     private static String[] itemBlackListMethodNames = {
-            BattlegearTranslator.getMapedMethodName("func_77648_a", "onItemUse"),
+            BattlegearTranslator.getMapedMethodName("a", "onItemUse"),
             BattlegearTranslator.getMapedMethodName("onItemUseFirst", "onItemUseFirst"), // Added by Forge
-            BattlegearTranslator.getMapedMethodName("func_77659_a", "onItemRightClick")};
+            BattlegearTranslator.getMapedMethodName("a", "onItemRightClick")};
     /**
      * Method arguments classes that are not allowed in {@link Item} subclasses for common wielding
      */

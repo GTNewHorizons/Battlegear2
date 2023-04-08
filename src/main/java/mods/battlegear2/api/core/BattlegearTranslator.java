@@ -5,9 +5,6 @@ package mods.battlegear2.api.core;
  * FMLDeobfuscatingRemapper) environments
  */
 public class BattlegearTranslator {
-
-    // Setting this to true will enable the output of all edited classes as .class files
-    public static boolean debug = false;
     public static boolean obfuscatedEnv;
 
     @Deprecated
