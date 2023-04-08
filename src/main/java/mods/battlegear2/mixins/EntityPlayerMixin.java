@@ -68,10 +68,10 @@ public abstract class EntityPlayerMixin extends EntityLivingBase implements IBat
 
     @Inject(method = "onItemUseFinish",
             at = @At(value = "INVOKE_ASSIGN",
-                    target = "Lnet/minecraftforge/event/ForgeEventFactory;onItemUseFinish(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;ILnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;"),
+                    target = "Lnet/minecraftforge/event/ForgeEventFactory;onItemUseFinish(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;ILnet/minecraft/item/ItemStack;)Lnet/minecraft/item/ItemStack;",
+                    remap = false),
             locals = LocalCapture.CAPTURE_FAILEXCEPTION,
-            cancellable = true,
-            remap = false)
+            cancellable = true)
     protected void modifyOnItemUseFinish(CallbackInfo ci, int i, ItemStack itemstack) {
         EntityPlayer player = (EntityPlayer) (Object) this;
         if (isInBattleMode()) {
