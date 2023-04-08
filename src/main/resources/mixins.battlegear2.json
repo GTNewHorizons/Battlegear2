@@ -20,7 +20,8 @@
     "RendererLivingEntityMixin",
     "RenderPlayerMixin",
     "NetHandlerPlayClientMixin",
-    "PlayerControllerMPMixin"
+    "PlayerControllerMPMixin",
+    "NetHandlerPlayServerMixin"
   ],
   "client": [],
   "server": []

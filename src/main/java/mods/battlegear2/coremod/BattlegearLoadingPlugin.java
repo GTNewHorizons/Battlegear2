@@ -19,13 +19,9 @@ public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
     public static final String NetServerHandlerTransformer = "mods.battlegear2.coremod.transformers.NetServerHandlerTransformer";
     public static File debugOutputLocation;
 
-    public static final String[] transformers = new String[]{
-            NetServerHandlerTransformer,
-    };
-
     @Override
     public String[] getASMTransformerClass() {
-        return transformers;
+        return null;
     }
 
     @Override
