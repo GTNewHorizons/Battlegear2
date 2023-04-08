@@ -19,7 +19,8 @@
     "RenderBipedMixin",
     "RendererLivingEntityMixin",
     "RenderPlayerMixin",
-    "NetHandlerPlayClientMixin"
+    "NetHandlerPlayClientMixin",
+    "PlayerControllerMPMixin"
   ],
   "client": [],
   "server": []

@@ -17,11 +17,10 @@ import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
 public final class BattlegearLoadingPlugin implements IFMLLoadingPlugin {
 
     public static final String NetServerHandlerTransformer = "mods.battlegear2.coremod.transformers.NetServerHandlerTransformer";
-    public static final String PlayerControllerMPTransformer = "mods.battlegear2.coremod.transformers.PlayerControllerMPTransformer";
     public static File debugOutputLocation;
 
     public static final String[] transformers = new String[]{
-            NetServerHandlerTransformer, PlayerControllerMPTransformer,
+            NetServerHandlerTransformer,
     };
 
     @Override
