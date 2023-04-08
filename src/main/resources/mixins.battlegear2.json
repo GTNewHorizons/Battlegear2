@@ -18,7 +18,8 @@
     "ModelBaseMixin",
     "RenderBipedMixin",
     "RendererLivingEntityMixin",
-    "RenderPlayerMixin"
+    "RenderPlayerMixin",
+    "NetHandlerPlayClientMixin"
   ],
   "client": [],
   "server": []
