@@ -157,11 +157,14 @@ public class EntityEnderArrow extends AbstractMBArrow {
     public void onHitGround(int x, int y, int z) {
         this.setDead();
         if (shootingEntity instanceof EntityPlayer && shootingEntity.isSneaking()) {
-            Block id = worldObj.getBlock(x, y, z);
-            if (id != Blocks.bedrock && this.worldObj.getGameRules().getGameRuleBooleanValue("doTileDrops")) {
+            Block block = worldObj.getBlock(x, y, z);
+            if (block != Blocks.bedrock && this.worldObj.getGameRules().getGameRuleBooleanValue("doTileDrops")) {
                 int meta = worldObj.getBlockMetadata(x, y, z);
+                ItemStack item = new ItemStack(block, 1, meta);
+                if (item.getItem() == null) {
+                    return;
+                }
                 worldObj.setBlockToAir(x, y, z);
-                ItemStack item = new ItemStack(id, 1, meta);
                 if (!((EntityPlayer) shootingEntity).inventory.addItemStackToInventory(item)) {
                     EntityItem entityitem = ForgeHooks.onPlayerTossEvent((EntityPlayer) shootingEntity, item, true);
                     if (entityitem != null) {
