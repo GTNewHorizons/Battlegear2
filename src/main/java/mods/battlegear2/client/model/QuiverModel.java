@@ -2,12 +2,12 @@ package mods.battlegear2.client.model;
 
 import java.util.Random;
 
-import mods.battlegear2.client.utils.BattlegearRenderHelper;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.client.utils.BattlegearRenderHelper;
 
 public class QuiverModel extends ModelBase {
 

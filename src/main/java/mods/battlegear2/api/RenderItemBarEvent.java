@@ -2,8 +2,13 @@ package mods.battlegear2.api;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.common.eventhandler.Cancelable;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.client.gui.BattlegearInGameGUI;
 
 /**
  * Events from {@link BattlegearInGameGUI} to {@link MinecraftForge.EVENT_BUS} helping display HUD elements added to the

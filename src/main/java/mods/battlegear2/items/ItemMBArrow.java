@@ -2,9 +2,6 @@ package mods.battlegear2.items;
 
 import java.util.List;
 
-import mods.battlegear2.api.quiver.DispenseArrow;
-import mods.battlegear2.items.arrows.*;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,6 +15,17 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.quiver.DispenseArrow;
+import mods.battlegear2.items.arrows.AbstractMBArrow;
+import mods.battlegear2.items.arrows.EntityEnderArrow;
+import mods.battlegear2.items.arrows.EntityExplossiveArrow;
+import mods.battlegear2.items.arrows.EntityFlameArrow;
+import mods.battlegear2.items.arrows.EntityHolyArrow;
+import mods.battlegear2.items.arrows.EntityIceArrow;
+import mods.battlegear2.items.arrows.EntityLeechArrow;
+import mods.battlegear2.items.arrows.EntityLoveArrow;
+import mods.battlegear2.items.arrows.EntityPiercingArrow;
+import mods.battlegear2.items.arrows.EntityPoisonArrow;
 
 public class ItemMBArrow extends Item {
 

@@ -2,17 +2,6 @@ package mods.battlegear2.items;
 
 import java.util.List;
 
-import mods.battlegear2.api.EnchantmentHelper;
-import mods.battlegear2.api.IDyable;
-import mods.battlegear2.api.IEnchantable;
-import mods.battlegear2.api.ISheathed;
-import mods.battlegear2.api.shield.IArrowCatcher;
-import mods.battlegear2.api.shield.IArrowDisplay;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.api.shield.ShieldType;
-import mods.battlegear2.enchantments.BaseEnchantment;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
@@ -31,6 +20,16 @@ import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.EnchantmentHelper;
+import mods.battlegear2.api.IDyable;
+import mods.battlegear2.api.IEnchantable;
+import mods.battlegear2.api.ISheathed;
+import mods.battlegear2.api.shield.IArrowCatcher;
+import mods.battlegear2.api.shield.IArrowDisplay;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.api.shield.ShieldType;
+import mods.battlegear2.enchantments.BaseEnchantment;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public class ItemShield extends Item
         implements IShield, IDyable, IEnchantable, ISheathed, IArrowCatcher, IArrowDisplay, IFuelHandler {

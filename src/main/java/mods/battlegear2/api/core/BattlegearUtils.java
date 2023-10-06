@@ -3,13 +3,6 @@ package mods.battlegear2.api.core;
 import java.io.Closeable;
 import java.io.IOException;
 
-import mods.battlegear2.api.*;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.quiver.ISpecialBow;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.api.weapons.IBattlegearWeapon;
-import mods.battlegear2.api.weapons.WeaponRegistry;
-
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +12,18 @@ import net.minecraft.entity.ai.attributes.BaseAttributeMap;
 import net.minecraft.entity.boss.EntityDragonPart;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemBucket;
+import net.minecraft.item.ItemEnderPearl;
+import net.minecraft.item.ItemFireball;
+import net.minecraft.item.ItemFlintAndSteel;
+import net.minecraft.item.ItemSnowball;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTSizeTracker;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,7 +42,18 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
+
 import cpw.mods.fml.common.eventhandler.EventBus;
+import mods.battlegear2.api.IAllowItem;
+import mods.battlegear2.api.IOffhandDual;
+import mods.battlegear2.api.IOffhandWield;
+import mods.battlegear2.api.IUsableItem;
+import mods.battlegear2.api.PlayerEventChild;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.ISpecialBow;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.api.weapons.IBattlegearWeapon;
+import mods.battlegear2.api.weapons.WeaponRegistry;
 
 /**
  * Store commonly used method, mostly for the {@link EntityPlayer} {@link ItemStack}s management

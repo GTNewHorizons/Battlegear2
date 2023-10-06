@@ -1,10 +1,11 @@
 package mods.battlegear2.api.quiver;
 
-import java.util.*;
-
-import mods.battlegear2.api.ISensible;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.items.ItemQuiver;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +18,10 @@ import net.minecraft.world.World;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterators;
+
+import mods.battlegear2.api.ISensible;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.items.ItemQuiver;
 
 public class QuiverArrowRegistry {
 

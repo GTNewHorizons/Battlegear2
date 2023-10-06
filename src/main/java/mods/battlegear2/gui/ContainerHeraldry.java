@@ -1,10 +1,10 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
+
+import mods.battlegear2.api.core.InventoryPlayerBattle;
 
 public class ContainerHeraldry extends ContainerLocalPlayer {
 

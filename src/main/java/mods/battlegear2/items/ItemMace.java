@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import mods.battlegear2.api.weapons.IPotionEffect;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,6 +15,7 @@ import net.minecraft.util.StatCollector;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.weapons.IPotionEffect;
 
 public class ItemMace extends OneHandedWeapon implements IPotionEffect {
 

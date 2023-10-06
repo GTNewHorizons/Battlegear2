@@ -1,8 +1,8 @@
 package mods.battlegear2.heraldry;
 
-import mods.battlegear2.Battlegear;
-
 import net.minecraft.util.ResourceLocation;
+
+import mods.battlegear2.Battlegear;
 
 public enum HeraldryIcon {
 

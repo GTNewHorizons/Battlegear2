@@ -1,22 +1,16 @@
 package mods.battlegear2.client.gui;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.HeadlessException;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.IntBuffer;
 import java.util.Arrays;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-import mods.battlegear2.api.heraldry.ITool;
-import mods.battlegear2.client.gui.controls.*;
-import mods.battlegear2.client.heraldry.tools.*;
-import mods.battlegear2.client.utils.*;
-import mods.battlegear2.packet.BattlegearChangeHeraldryPacket;
-import mods.battlegear2.utils.FileExtension;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -33,6 +27,28 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.heraldry.IHeraldryItem;
+import mods.battlegear2.api.heraldry.ITool;
+import mods.battlegear2.client.gui.controls.GuiColourPicker;
+import mods.battlegear2.client.gui.controls.GuiSliderAlt;
+import mods.battlegear2.client.gui.controls.GuiTextFieldAlt;
+import mods.battlegear2.client.gui.controls.GuiToggeableButton;
+import mods.battlegear2.client.gui.controls.IControlListener;
+import mods.battlegear2.client.heraldry.tools.CircleTool;
+import mods.battlegear2.client.heraldry.tools.EyeDropperTool;
+import mods.battlegear2.client.heraldry.tools.FloodFillTool;
+import mods.battlegear2.client.heraldry.tools.PenTool;
+import mods.battlegear2.client.heraldry.tools.RectangleTool;
+import mods.battlegear2.client.heraldry.tools.TextTool;
+import mods.battlegear2.client.utils.ImageData;
+import mods.battlegear2.client.utils.ImageFileViewer;
+import mods.battlegear2.client.utils.ImageFilter;
+import mods.battlegear2.client.utils.ImagePreviewPanel;
+import mods.battlegear2.client.utils.ImageSplitDialog;
+import mods.battlegear2.packet.BattlegearChangeHeraldryPacket;
+import mods.battlegear2.utils.FileExtension;
 
 /**
  * Created by Aaron on 3/08/13.

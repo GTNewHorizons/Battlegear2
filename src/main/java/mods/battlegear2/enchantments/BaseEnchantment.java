@@ -1,15 +1,15 @@
 package mods.battlegear2.enchantments;
 
-import mods.battlegear2.api.EnchantmentHelper;
-import mods.battlegear2.api.IEnchantable;
-import mods.battlegear2.api.core.BattlegearUtils;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Property;
 
 import com.google.common.base.Optional;
+
+import mods.battlegear2.api.EnchantmentHelper;
+import mods.battlegear2.api.IEnchantable;
+import mods.battlegear2.api.core.BattlegearUtils;
 
 public class BaseEnchantment extends Enchantment {
 

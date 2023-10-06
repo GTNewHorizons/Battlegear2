@@ -1,10 +1,5 @@
 package mods.battlegear2.items;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.weapons.IBackStabbable;
-import mods.battlegear2.api.weapons.IExtendedReachWeapon;
-import mods.battlegear2.api.weapons.IHitTimeModifier;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -13,7 +8,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntityDamageSource;
 
 import com.google.common.collect.Multimap;
+
 import cpw.mods.fml.common.registry.GameRegistry;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.weapons.IBackStabbable;
+import mods.battlegear2.api.weapons.IExtendedReachWeapon;
+import mods.battlegear2.api.weapons.IHitTimeModifier;
 
 public class ItemDagger extends OneHandedWeapon implements IBackStabbable, IHitTimeModifier, IExtendedReachWeapon {
 

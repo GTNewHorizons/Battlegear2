@@ -3,8 +3,6 @@ package mods.battlegear2.packet;
 import java.util.Hashtable;
 import java.util.Map;
 
-import mods.battlegear2.Battlegear;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
@@ -15,6 +13,7 @@ import cpw.mods.fml.common.network.FMLNetworkEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
+import mods.battlegear2.Battlegear;
 
 public final class BattlegearPacketHandeler {
 

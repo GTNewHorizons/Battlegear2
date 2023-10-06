@@ -1,8 +1,5 @@
 package mods.battlegear2.client.gui;
 
-import mods.battlegear2.client.gui.controls.GuiDrawButton;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.ScaledResolution;
@@ -10,6 +7,8 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import mods.battlegear2.client.gui.controls.GuiDrawButton;
+import mods.battlegear2.utils.BattlegearConfig;
 
 /**
  * A gui that displays like the in-game screen, where each element is a {@link GuiDrawButton} Used to move gui elements

@@ -1,13 +1,13 @@
 package mods.battlegear2.api.shield;
 
-import mods.battlegear2.api.ISensible;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.util.Constants;
+
+import mods.battlegear2.api.ISensible;
 
 /**
  * Defines a shield "material", since not necessarily a tool Roughly covers the data asked for by {@link IShield}

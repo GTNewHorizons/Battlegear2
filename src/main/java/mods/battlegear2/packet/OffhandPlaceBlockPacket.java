@@ -1,12 +1,5 @@
 package mods.battlegear2.packet;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.BattlemodeHookContainerClass;
-import mods.battlegear2.BukkitWrapper;
-import mods.battlegear2.api.PlayerEventChild;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -25,6 +18,12 @@ import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.relauncher.Side;
 import io.netty.buffer.ByteBuf;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.BattlemodeHookContainerClass;
+import mods.battlegear2.BukkitWrapper;
+import mods.battlegear2.api.PlayerEventChild;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
 
 public final class OffhandPlaceBlockPacket extends AbstractMBPacket {
 

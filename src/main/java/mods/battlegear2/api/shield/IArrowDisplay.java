@@ -2,6 +2,8 @@ package mods.battlegear2.api.shield;
 
 import net.minecraft.item.ItemStack;
 
+import mods.battlegear2.items.ItemShield;
+
 /**
  * Defines an {@link Item} that can hold arrows as an internal variable Used by {@link ItemShield} to display blocked
  * arrows

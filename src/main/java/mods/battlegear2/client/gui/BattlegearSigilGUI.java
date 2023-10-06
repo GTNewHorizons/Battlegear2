@@ -1,15 +1,5 @@
 package mods.battlegear2.client.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.heraldry.HeraldryData;
-import mods.battlegear2.api.heraldry.RefreshableTexture;
-import mods.battlegear2.client.BattlegearClientEvents;
-import mods.battlegear2.client.gui.controls.*;
-import mods.battlegear2.client.renderer.HeraldryCrestItemRenderer;
-import mods.battlegear2.gui.BattlegearGUIHandeler;
-import mods.battlegear2.gui.ContainerHeraldry;
-import mods.battlegear2.packet.BattlegearGUIPacket;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
@@ -20,6 +10,21 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.heraldry.HeraldryData;
+import mods.battlegear2.api.heraldry.RefreshableTexture;
+import mods.battlegear2.client.BattlegearClientEvents;
+import mods.battlegear2.client.gui.controls.GUICrestElementList;
+import mods.battlegear2.client.gui.controls.GuiColourPicker;
+import mods.battlegear2.client.gui.controls.GuiColourToggleButton;
+import mods.battlegear2.client.gui.controls.GuiPatternScrollList;
+import mods.battlegear2.client.gui.controls.GuiToggleButton;
+import mods.battlegear2.client.gui.controls.IControlListener;
+import mods.battlegear2.client.renderer.HeraldryCrestItemRenderer;
+import mods.battlegear2.gui.BattlegearGUIHandeler;
+import mods.battlegear2.gui.ContainerHeraldry;
+import mods.battlegear2.packet.BattlegearGUIPacket;
 
 public class BattlegearSigilGUI extends GuiContainer {
 

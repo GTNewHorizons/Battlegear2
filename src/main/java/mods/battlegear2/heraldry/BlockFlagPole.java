@@ -2,8 +2,6 @@ package mods.battlegear2.heraldry;
 
 import java.util.List;
 
-import mods.battlegear2.api.heraldry.IFlagHolder;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -19,6 +17,7 @@ import net.minecraft.world.World;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.heraldry.IFlagHolder;
 
 /**
  * User: nerd-boy Date: 2/08/13 Time: 11:53 AM

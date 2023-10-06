@@ -1,12 +1,12 @@
 package mods.battlegear2.recipies;
 
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public final class QuiverRecipie2 implements IRecipe {
 

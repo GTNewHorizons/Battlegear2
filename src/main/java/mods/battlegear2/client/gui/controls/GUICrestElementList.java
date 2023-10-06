@@ -3,17 +3,17 @@ package mods.battlegear2.client.gui.controls;
 import java.util.ArrayList;
 import java.util.List;
 
-import mods.battlegear2.api.heraldry.Crest;
-import mods.battlegear2.api.heraldry.HeraldryData;
-import mods.battlegear2.api.heraldry.RefreshableTexture;
-import mods.battlegear2.client.gui.BattlegearSigilGUI;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.api.heraldry.Crest;
+import mods.battlegear2.api.heraldry.HeraldryData;
+import mods.battlegear2.api.heraldry.RefreshableTexture;
+import mods.battlegear2.client.gui.BattlegearSigilGUI;
 
 public class GUICrestElementList extends GUIScrollList {
 

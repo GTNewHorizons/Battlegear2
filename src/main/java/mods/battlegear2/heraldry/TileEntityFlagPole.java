@@ -3,9 +3,6 @@ package mods.battlegear2.heraldry;
 import java.util.ArrayList;
 import java.util.List;
 
-import mods.battlegear2.api.heraldry.IFlagHolder;
-import mods.battlegear2.items.HeraldryCrest;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,6 +14,8 @@ import net.minecraft.util.AxisAlignedBB;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.heraldry.IFlagHolder;
+import mods.battlegear2.items.HeraldryCrest;
 
 /**
  * User: nerd-boy Date: 2/08/13 Time: 2:33 PM

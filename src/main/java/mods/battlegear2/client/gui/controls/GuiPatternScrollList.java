@@ -1,15 +1,15 @@
 package mods.battlegear2.client.gui.controls;
 
-import mods.battlegear2.api.heraldry.HeraldryData;
-import mods.battlegear2.api.heraldry.PatternStore;
-import mods.battlegear2.api.heraldry.RefreshableTexture;
-import mods.battlegear2.client.gui.BattlegearSigilGUI;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.api.heraldry.HeraldryData;
+import mods.battlegear2.api.heraldry.PatternStore;
+import mods.battlegear2.api.heraldry.RefreshableTexture;
+import mods.battlegear2.client.gui.BattlegearSigilGUI;
 
 public class GuiPatternScrollList extends GUIScrollList {
 

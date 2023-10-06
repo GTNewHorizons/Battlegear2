@@ -1,16 +1,15 @@
 package mods.battlegear2.packet;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
 
 public final class PickBlockPacket extends AbstractMBPacket {
 

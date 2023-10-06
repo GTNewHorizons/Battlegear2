@@ -1,9 +1,9 @@
 package mods.battlegear2.client.gui.controls;
 
-import mods.battlegear2.client.gui.BattleEquipGUI;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
+
+import mods.battlegear2.client.gui.BattleEquipGUI;
 
 public final class GuiBGInventoryButton extends GuiPlaceableButton {
 

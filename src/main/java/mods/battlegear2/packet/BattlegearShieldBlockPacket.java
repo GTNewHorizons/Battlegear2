@@ -1,12 +1,11 @@
 package mods.battlegear2.packet;
 
-import mods.battlegear2.api.core.IBattlePlayer;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.WorldServer;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
+import mods.battlegear2.api.core.IBattlePlayer;
 
 public final class BattlegearShieldBlockPacket extends AbstractMBPacket {
 

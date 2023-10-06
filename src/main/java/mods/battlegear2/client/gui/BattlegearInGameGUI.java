@@ -1,15 +1,5 @@
 package mods.battlegear2.client.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.RenderItemBarEvent;
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.client.BattlegearClientTickHandeler;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -25,6 +15,15 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.RenderItemBarEvent;
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.client.BattlegearClientTickHandeler;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public class BattlegearInGameGUI extends Gui {
 

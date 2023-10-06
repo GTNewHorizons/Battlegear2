@@ -1,12 +1,5 @@
 package mods.battlegear2.client.renderer;
 
-import mods.battlegear2.MobHookContainerClass;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-import mods.battlegear2.client.ClientProxy;
-import mods.battlegear2.client.utils.BattlegearRenderHelper;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
@@ -18,6 +11,13 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.MobHookContainerClass;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.client.ClientProxy;
+import mods.battlegear2.client.utils.BattlegearRenderHelper;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public class BowRendererIron implements IItemRenderer {
 

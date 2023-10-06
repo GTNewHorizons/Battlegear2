@@ -2,12 +2,6 @@ package mods.battlegear2.items;
 
 import java.util.List;
 
-import mods.battlegear2.api.IDyable;
-import mods.battlegear2.api.PlayerEventChild;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -26,6 +20,11 @@ import net.minecraftforge.event.ForgeEventFactory;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.IDyable;
+import mods.battlegear2.api.PlayerEventChild;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
 
 public class ItemQuiver extends Item implements IArrowContainer2, IDyable {
 

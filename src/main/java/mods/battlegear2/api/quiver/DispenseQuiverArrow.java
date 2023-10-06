@@ -1,5 +1,6 @@
 package mods.battlegear2.api.quiver;
 
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.Item;

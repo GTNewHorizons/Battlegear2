@@ -3,24 +3,15 @@ package mods.battlegear2.client.utils;
 import static net.minecraftforge.client.IItemRenderer.ItemRenderType.EQUIPPED;
 import static net.minecraftforge.client.IItemRenderer.ItemRendererHelper.BLOCK_3D;
 
-import mods.battlegear2.api.IBackSheathedRender;
-import mods.battlegear2.api.ISheathed;
-import mods.battlegear2.api.RenderPlayerEventChild.*;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.IOffhandRender;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.shield.IArrowDisplay;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.client.BattlegearClientTickHandeler;
-import mods.battlegear2.utils.BattlegearConfig;
-import mods.battlegear2.utils.Sheath;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RenderPlayer;
 import net.minecraft.entity.Entity;
@@ -41,6 +32,23 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
+
+import mods.battlegear2.api.IBackSheathedRender;
+import mods.battlegear2.api.ISheathed;
+import mods.battlegear2.api.RenderPlayerEventChild.PlayerElementType;
+import mods.battlegear2.api.RenderPlayerEventChild.PostRenderPlayerElement;
+import mods.battlegear2.api.RenderPlayerEventChild.PostRenderSheathed;
+import mods.battlegear2.api.RenderPlayerEventChild.PreRenderPlayerElement;
+import mods.battlegear2.api.RenderPlayerEventChild.PreRenderSheathed;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.IOffhandRender;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.shield.IArrowDisplay;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.client.BattlegearClientTickHandeler;
+import mods.battlegear2.utils.BattlegearConfig;
+import mods.battlegear2.utils.Sheath;
 
 public final class BattlegearRenderHelper {
 

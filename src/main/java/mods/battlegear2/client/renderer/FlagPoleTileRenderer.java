@@ -2,9 +2,6 @@ package mods.battlegear2.client.renderer;
 
 import java.util.List;
 
-import mods.battlegear2.api.heraldry.IFlagHolder;
-import mods.battlegear2.client.utils.ImageCache;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.client.Minecraft;
@@ -16,6 +13,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.api.heraldry.IFlagHolder;
+import mods.battlegear2.client.utils.ImageCache;
 
 /**
  * User: nerd-boy Date: 2/08/13 Time: 2:33 PM TODO: Add discription

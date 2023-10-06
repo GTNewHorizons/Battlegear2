@@ -1,13 +1,15 @@
 package mods.battlegear2.client.heraldry.tools;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-
-import mods.battlegear2.api.heraldry.ITool;
-import mods.battlegear2.client.utils.ImageData;
 
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.util.ResourceLocation;
+
+import mods.battlegear2.api.heraldry.ITool;
+import mods.battlegear2.client.utils.ImageData;
 
 /**
  * User: nerd-boy Date: 13/08/13 Time: 2:57 PM TODO: Add discription

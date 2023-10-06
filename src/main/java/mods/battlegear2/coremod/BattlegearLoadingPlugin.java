@@ -3,12 +3,12 @@ package mods.battlegear2.coremod;
 import java.io.File;
 import java.util.Map;
 
-import mods.battlegear2.api.core.BattlegearTranslator;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.MCVersion;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.Name;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin.TransformerExclusions;
+import mods.battlegear2.api.core.BattlegearTranslator;
 
 @TransformerExclusions({ "mods.battlegear2.coremod" })
 @Name("Mine and Blade: Battlegear2")

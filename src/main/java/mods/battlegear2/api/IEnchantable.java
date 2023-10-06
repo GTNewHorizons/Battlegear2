@@ -3,6 +3,8 @@ package mods.battlegear2.api;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemStack;
 
+import mods.battlegear2.enchantments.BaseEnchantment;
+
 public interface IEnchantable {
 
     /**

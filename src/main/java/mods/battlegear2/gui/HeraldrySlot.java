@@ -1,10 +1,10 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+
+import mods.battlegear2.api.heraldry.IHeraldryItem;
 
 public final class HeraldrySlot extends Slot {
 

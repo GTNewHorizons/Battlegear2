@@ -6,9 +6,6 @@ import java.io.FileOutputStream;
 import java.util.Iterator;
 import java.util.List;
 
-import mods.battlegear2.api.core.BattlegearTranslator;
-import mods.battlegear2.coremod.BattlegearLoadingPlugin;
-
 import net.minecraft.launchwrapper.IClassTransformer;
 
 import org.apache.logging.log4j.Level;
@@ -17,7 +14,16 @@ import org.apache.logging.log4j.Logger;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.*;
+import org.objectweb.asm.tree.AbstractInsnNode;
+import org.objectweb.asm.tree.ClassNode;
+import org.objectweb.asm.tree.FieldInsnNode;
+import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
+
+import mods.battlegear2.api.core.BattlegearTranslator;
+import mods.battlegear2.coremod.BattlegearLoadingPlugin;
 
 public abstract class TransformerBase implements IClassTransformer, Opcodes {
 

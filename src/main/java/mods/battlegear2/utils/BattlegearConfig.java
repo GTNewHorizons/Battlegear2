@@ -3,21 +3,6 @@ package mods.battlegear2.utils;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.quiver.DispenseQuiverArrow;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-import mods.battlegear2.api.shield.ShieldType;
-import mods.battlegear2.enchantments.BaseEnchantment;
-import mods.battlegear2.heraldry.BlockFlagPole;
-import mods.battlegear2.heraldry.ItemBlockFlagPole;
-import mods.battlegear2.heraldry.KnightArmourRecipie;
-import mods.battlegear2.heraldry.TileEntityFlagPole;
-import mods.battlegear2.inventory.CreativeTabMB_B_2;
-import mods.battlegear2.items.*;
-import mods.battlegear2.recipies.DyeRecipie;
-import mods.battlegear2.recipies.QuiverRecipie2;
-import mods.battlegear2.recipies.ShieldRemoveArrowRecipie;
-
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -38,6 +23,31 @@ import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import cpw.mods.fml.common.event.FMLMissingMappingsEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.quiver.DispenseQuiverArrow;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.api.shield.ShieldType;
+import mods.battlegear2.enchantments.BaseEnchantment;
+import mods.battlegear2.heraldry.BlockFlagPole;
+import mods.battlegear2.heraldry.ItemBlockFlagPole;
+import mods.battlegear2.heraldry.KnightArmourRecipie;
+import mods.battlegear2.heraldry.TileEntityFlagPole;
+import mods.battlegear2.inventory.CreativeTabMB_B_2;
+import mods.battlegear2.items.HeraldryCrest;
+import mods.battlegear2.items.ItemBowDiamond;
+import mods.battlegear2.items.ItemBowIron;
+import mods.battlegear2.items.ItemDagger;
+import mods.battlegear2.items.ItemKnightArmour;
+import mods.battlegear2.items.ItemMBArrow;
+import mods.battlegear2.items.ItemMace;
+import mods.battlegear2.items.ItemQuiver;
+import mods.battlegear2.items.ItemShield;
+import mods.battlegear2.items.ItemSpear;
+import mods.battlegear2.items.ItemWaraxe;
+import mods.battlegear2.items.ItemWeapon;
+import mods.battlegear2.recipies.DyeRecipie;
+import mods.battlegear2.recipies.QuiverRecipie2;
+import mods.battlegear2.recipies.ShieldRemoveArrowRecipie;
 
 public class BattlegearConfig {
 

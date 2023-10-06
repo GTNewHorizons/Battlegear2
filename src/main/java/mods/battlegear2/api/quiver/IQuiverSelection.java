@@ -1,6 +1,7 @@
 package mods.battlegear2.api.quiver;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 
 public interface IQuiverSelection {

@@ -3,9 +3,16 @@ package mods.battlegear2.coremod.transformers;
 import java.util.Iterator;
 import java.util.List;
 
-import mods.battlegear2.api.core.BattlegearTranslator;
+import org.objectweb.asm.tree.AbstractInsnNode;
+import org.objectweb.asm.tree.FieldInsnNode;
+import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.InsnNode;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.VarInsnNode;
 
-import org.objectweb.asm.tree.*;
+import mods.battlegear2.api.core.BattlegearTranslator;
 
 public final class EntityOtherPlayerMPTransformer extends TransformerBase {
 

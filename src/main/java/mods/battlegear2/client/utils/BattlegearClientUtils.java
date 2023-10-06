@@ -1,9 +1,5 @@
 package mods.battlegear2.client.utils;
 
-import mods.battlegear2.api.RenderPlayerEventChild;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-
 import net.minecraft.client.entity.EntityOtherPlayerMP;
 import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemPotion;
@@ -13,6 +9,9 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import mods.battlegear2.api.RenderPlayerEventChild;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
 
 public final class BattlegearClientUtils {
 

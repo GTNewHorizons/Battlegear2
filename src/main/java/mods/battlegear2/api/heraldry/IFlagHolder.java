@@ -4,6 +4,8 @@ import java.util.List;
 
 import net.minecraft.item.ItemStack;
 
+import mods.battlegear2.client.renderer.FlagPoleTileRenderer;
+
 /**
  * Defines a {@link #TileEntity} holding flags {@link #ItemStack}
  */

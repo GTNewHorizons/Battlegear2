@@ -1,6 +1,6 @@
 package mods.battlegear2.api.heraldry;
 
-import java.awt.*;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import net.minecraft.client.renderer.texture.DynamicTexture;

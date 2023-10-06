@@ -6,10 +6,10 @@ import java.io.InputStreamReader;
 
 import javax.imageio.ImageIO;
 
-import mods.battlegear2.api.core.BattlegearUtils;
-
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
+
+import mods.battlegear2.api.core.BattlegearUtils;
 
 public class CrestImages implements Comparable<CrestImages> {
 

@@ -1,13 +1,13 @@
 package mods.battlegear2.client.utils;
 
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.item.ItemStack;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
+
+import mods.battlegear2.api.heraldry.IHeraldryItem;
 
 /**
  * User: nerd-boy Date: 2/08/13 Time: 3:02 PM TODO: Add discription

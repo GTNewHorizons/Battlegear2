@@ -1,6 +1,9 @@
 package mods.battlegear2.api.core;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+
+import mods.battlegear2.api.shield.IShield;
 
 /**
  * Interface added to {@link EntityPlayer} to support offhand management

@@ -4,6 +4,8 @@ import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
+import mods.battlegear2.items.ItemShield;
+
 /**
  * Defines an {@link Item} that can catch {@link IProjectile} Used by {@link ItemShield} to block arrows
  * 

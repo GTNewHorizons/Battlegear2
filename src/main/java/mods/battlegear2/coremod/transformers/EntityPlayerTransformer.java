@@ -3,13 +3,20 @@ package mods.battlegear2.coremod.transformers;
 import java.util.List;
 import java.util.ListIterator;
 
-import mods.battlegear2.api.core.BattlegearTranslator;
-import mods.battlegear2.api.core.IBattlePlayer;
-
 import org.apache.logging.log4j.Level;
 import org.objectweb.asm.Label;
 import org.objectweb.asm.Type;
-import org.objectweb.asm.tree.*;
+import org.objectweb.asm.tree.AbstractInsnNode;
+import org.objectweb.asm.tree.FieldInsnNode;
+import org.objectweb.asm.tree.FieldNode;
+import org.objectweb.asm.tree.InsnList;
+import org.objectweb.asm.tree.MethodInsnNode;
+import org.objectweb.asm.tree.MethodNode;
+import org.objectweb.asm.tree.TypeInsnNode;
+import org.objectweb.asm.tree.VarInsnNode;
+
+import mods.battlegear2.api.core.BattlegearTranslator;
+import mods.battlegear2.api.core.IBattlePlayer;
 
 public final class EntityPlayerTransformer extends TransformerBase {
 

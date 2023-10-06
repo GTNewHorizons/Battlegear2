@@ -6,21 +6,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.CommonProxy;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.client.gui.BattlegearGuiKeyHandler;
-import mods.battlegear2.client.renderer.*;
-import mods.battlegear2.client.utils.BattlegearClientUtils;
-import mods.battlegear2.heraldry.TileEntityFlagPole;
-import mods.battlegear2.packet.BattlegearAnimationPacket;
-import mods.battlegear2.packet.SpecialActionPacket;
-import mods.battlegear2.utils.BattlegearConfig;
-import mods.battlegear2.utils.EnumBGAnimations;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.entity.Entity;
@@ -43,6 +28,29 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.common.registry.GameData;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.CommonProxy;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.heraldry.IHeraldryItem;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.client.gui.BattlegearGuiKeyHandler;
+import mods.battlegear2.client.renderer.BowRenderer;
+import mods.battlegear2.client.renderer.BowRendererDiamond;
+import mods.battlegear2.client.renderer.BowRendererIron;
+import mods.battlegear2.client.renderer.FlagPoleItemRenderer;
+import mods.battlegear2.client.renderer.FlagPoleTileRenderer;
+import mods.battlegear2.client.renderer.HeraldryCrestItemRenderer;
+import mods.battlegear2.client.renderer.HeraldryItemRenderer;
+import mods.battlegear2.client.renderer.QuiverItremRenderer;
+import mods.battlegear2.client.renderer.ShieldRenderer;
+import mods.battlegear2.client.renderer.SpearRenderer;
+import mods.battlegear2.client.utils.BattlegearClientUtils;
+import mods.battlegear2.heraldry.TileEntityFlagPole;
+import mods.battlegear2.packet.BattlegearAnimationPacket;
+import mods.battlegear2.packet.SpecialActionPacket;
+import mods.battlegear2.utils.BattlegearConfig;
+import mods.battlegear2.utils.EnumBGAnimations;
 
 public final class ClientProxy extends CommonProxy {
 

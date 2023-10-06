@@ -1,8 +1,5 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.core.BattlegearUtils;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
@@ -13,6 +10,8 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.core.BattlegearUtils;
 
 public final class WeaponSlot extends Slot {
 

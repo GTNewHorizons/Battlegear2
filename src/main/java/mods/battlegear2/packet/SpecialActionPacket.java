@@ -1,14 +1,5 @@
 package mods.battlegear2.packet;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.EnchantmentHelper;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-import mods.battlegear2.api.quiver.SwapArrowEvent;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.enchantments.BaseEnchantment;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +10,14 @@ import net.minecraftforge.common.MinecraftForge;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import io.netty.buffer.ByteBuf;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.EnchantmentHelper;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.api.quiver.SwapArrowEvent;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.enchantments.BaseEnchantment;
 
 public final class SpecialActionPacket extends AbstractMBPacket {
 

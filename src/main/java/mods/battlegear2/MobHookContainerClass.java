@@ -1,11 +1,5 @@
 package mods.battlegear2;
 
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.items.ItemMBArrow;
-import mods.battlegear2.items.arrows.AbstractMBArrow;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +13,11 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.items.ItemMBArrow;
+import mods.battlegear2.items.arrows.AbstractMBArrow;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public final class MobHookContainerClass {
 

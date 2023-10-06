@@ -1,11 +1,13 @@
 package mods.battlegear2.client.utils;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.filechooser.FileView;
 
 import mods.battlegear2.utils.FileExtension;

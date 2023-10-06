@@ -3,12 +3,6 @@ package mods.battlegear2.client.renderer;
 import static org.lwjgl.opengl.GL11.glPopMatrix;
 import static org.lwjgl.opengl.GL11.glPushMatrix;
 
-import mods.battlegear2.api.heraldry.HeraldryData;
-import mods.battlegear2.api.heraldry.HeraldryTextureSmall;
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-import mods.battlegear2.api.heraldry.RefreshableTexture;
-import mods.battlegear2.client.utils.BattlegearRenderHelper;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -17,6 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+
+import mods.battlegear2.api.heraldry.HeraldryData;
+import mods.battlegear2.api.heraldry.HeraldryTextureSmall;
+import mods.battlegear2.api.heraldry.IHeraldryItem;
+import mods.battlegear2.api.heraldry.RefreshableTexture;
+import mods.battlegear2.client.utils.BattlegearRenderHelper;
 
 public class HeraldryCrestItemRenderer implements IItemRenderer {
 

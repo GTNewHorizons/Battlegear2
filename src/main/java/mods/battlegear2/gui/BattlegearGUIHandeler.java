@@ -1,16 +1,15 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.client.gui.BattleEquipGUI;
-import mods.battlegear2.client.gui.BattlegearSigilGUI;
-import mods.battlegear2.client.gui.GuiFlagDesigner;
-
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerPlayer;
 import net.minecraft.world.World;
 
 import cpw.mods.fml.common.network.IGuiHandler;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.client.gui.BattleEquipGUI;
+import mods.battlegear2.client.gui.BattlegearSigilGUI;
+import mods.battlegear2.client.gui.GuiFlagDesigner;
 
 public final class BattlegearGUIHandeler implements IGuiHandler {
 

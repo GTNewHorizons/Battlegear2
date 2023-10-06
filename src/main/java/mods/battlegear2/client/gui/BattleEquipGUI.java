@@ -1,17 +1,17 @@
 package mods.battlegear2.client.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.client.ClientProxy;
-import mods.battlegear2.gui.BattlegearGUIHandeler;
-import mods.battlegear2.gui.ContainerBattle;
-import mods.battlegear2.packet.BattlegearGUIPacket;
-
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.client.ClientProxy;
+import mods.battlegear2.gui.BattlegearGUIHandeler;
+import mods.battlegear2.gui.ContainerBattle;
+import mods.battlegear2.packet.BattlegearGUIPacket;
 
 public final class BattleEquipGUI extends InventoryEffectRenderer {
 

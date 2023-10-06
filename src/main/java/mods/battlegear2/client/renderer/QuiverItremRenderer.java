@@ -1,9 +1,5 @@
 package mods.battlegear2.client.renderer;
 
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.client.utils.BattlegearRenderHelper;
-import mods.battlegear2.items.ItemQuiver;
-
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -13,6 +9,10 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.client.utils.BattlegearRenderHelper;
+import mods.battlegear2.items.ItemQuiver;
 
 public class QuiverItremRenderer implements IItemRenderer {
 

@@ -1,13 +1,12 @@
 package mods.battlegear2;
 
-import mods.battlegear2.packet.LoginPacket;
-import mods.battlegear2.recipies.CraftingHandeler;
-
 import net.minecraft.entity.player.EntityPlayerMP;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
+import mods.battlegear2.packet.LoginPacket;
+import mods.battlegear2.recipies.CraftingHandeler;
 
 public final class BgPlayerTracker {
 

@@ -2,22 +2,6 @@ package mods.battlegear2;
 
 import java.util.List;
 
-import mods.battlegear2.api.*;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.InventoryExceptionEvent;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.heraldry.IFlagHolder;
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-import mods.battlegear2.api.quiver.IArrowContainer2;
-import mods.battlegear2.api.shield.IArrowCatcher;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.api.weapons.IExtendedReachWeapon;
-import mods.battlegear2.enchantments.BaseEnchantment;
-import mods.battlegear2.packet.BattlegearShieldFlashPacket;
-import mods.battlegear2.packet.BattlegearSyncItemPacket;
-import mods.battlegear2.utils.EnumBGAnimations;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
@@ -41,6 +25,25 @@ import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
+import mods.battlegear2.api.EnchantmentHelper;
+import mods.battlegear2.api.IHandListener;
+import mods.battlegear2.api.IOffhandDual;
+import mods.battlegear2.api.IOffhandListener;
+import mods.battlegear2.api.PlayerEventChild;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.InventoryExceptionEvent;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.heraldry.IFlagHolder;
+import mods.battlegear2.api.heraldry.IHeraldryItem;
+import mods.battlegear2.api.quiver.IArrowContainer2;
+import mods.battlegear2.api.shield.IArrowCatcher;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.api.weapons.IExtendedReachWeapon;
+import mods.battlegear2.enchantments.BaseEnchantment;
+import mods.battlegear2.packet.BattlegearShieldFlashPacket;
+import mods.battlegear2.packet.BattlegearSyncItemPacket;
+import mods.battlegear2.utils.EnumBGAnimations;
 
 public final class BattlemodeHookContainerClass {
 

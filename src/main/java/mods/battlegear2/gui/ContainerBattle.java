@@ -1,9 +1,5 @@
 package mods.battlegear2.gui;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.packet.BattlegearSyncItemPacket;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -11,6 +7,10 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.packet.BattlegearSyncItemPacket;
 
 public class ContainerBattle extends ContainerLocalPlayer {
 

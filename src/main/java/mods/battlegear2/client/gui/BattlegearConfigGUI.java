@@ -3,10 +3,6 @@ package mods.battlegear2.client.gui;
 import java.util.Arrays;
 import java.util.List;
 
-import mods.battlegear2.client.gui.controls.GUITextList;
-import mods.battlegear2.client.gui.controls.GuiToggleButton;
-import mods.battlegear2.utils.BattlegearConfig;
-
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -14,6 +10,9 @@ import net.minecraft.client.resources.I18n;
 import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.client.FMLClientHandler;
+import mods.battlegear2.client.gui.controls.GUITextList;
+import mods.battlegear2.client.gui.controls.GuiToggleButton;
+import mods.battlegear2.utils.BattlegearConfig;
 
 public final class BattlegearConfigGUI extends GuiScreen {
 

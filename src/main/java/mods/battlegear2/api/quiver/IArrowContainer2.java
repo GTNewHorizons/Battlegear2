@@ -1,11 +1,11 @@
 package mods.battlegear2.api.quiver;
 
-import mods.battlegear2.api.PlayerEventChild;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import mods.battlegear2.api.PlayerEventChild;
 
 public interface IArrowContainer2 {
 

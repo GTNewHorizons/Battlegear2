@@ -1,9 +1,5 @@
 package mods.battlegear2.items;
 
-import mods.battlegear2.api.IBackSheathedRender;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.api.weapons.IExtendedReachWeapon;
-
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,6 +16,9 @@ import com.google.common.collect.Multimap;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import mods.battlegear2.api.IBackSheathedRender;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.api.weapons.IExtendedReachWeapon;
 
 public class ItemSpear extends TwoHandedWeapon implements IExtendedReachWeapon, IBackSheathedRender {
 

@@ -2,12 +2,6 @@ package mods.battlegear2.client.renderer;
 
 import static org.lwjgl.opengl.GL11.*;
 
-import mods.battlegear2.api.heraldry.HeraldryData;
-import mods.battlegear2.api.heraldry.HeraldryTextureSmall;
-import mods.battlegear2.api.heraldry.IHeraldryItem;
-import mods.battlegear2.api.heraldry.RefreshableTexture;
-import mods.battlegear2.client.utils.BattlegearRenderHelper;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.ITextureObject;
@@ -17,6 +11,12 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
 import org.lwjgl.opengl.GL11;
+
+import mods.battlegear2.api.heraldry.HeraldryData;
+import mods.battlegear2.api.heraldry.HeraldryTextureSmall;
+import mods.battlegear2.api.heraldry.IHeraldryItem;
+import mods.battlegear2.api.heraldry.RefreshableTexture;
+import mods.battlegear2.client.utils.BattlegearRenderHelper;
 
 public class HeraldryItemRenderer implements IItemRenderer {
 

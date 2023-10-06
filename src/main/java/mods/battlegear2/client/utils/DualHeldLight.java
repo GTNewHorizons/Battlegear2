@@ -2,6 +2,7 @@ package mods.battlegear2.client.utils;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

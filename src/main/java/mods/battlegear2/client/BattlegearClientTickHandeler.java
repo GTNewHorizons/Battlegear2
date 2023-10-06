@@ -1,22 +1,5 @@
 package mods.battlegear2.client;
 
-import mods.battlegear2.Battlegear;
-import mods.battlegear2.BattlemodeHookContainerClass;
-import mods.battlegear2.api.EnchantmentHelper;
-import mods.battlegear2.api.PlayerEventChild;
-import mods.battlegear2.api.core.BattlegearUtils;
-import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.api.core.IOffhandRender;
-import mods.battlegear2.api.core.InventoryPlayerBattle;
-import mods.battlegear2.api.quiver.QuiverArrowRegistry;
-import mods.battlegear2.api.shield.IShield;
-import mods.battlegear2.api.weapons.IExtendedReachWeapon;
-import mods.battlegear2.enchantments.BaseEnchantment;
-import mods.battlegear2.packet.BattlegearAnimationPacket;
-import mods.battlegear2.packet.BattlegearShieldBlockPacket;
-import mods.battlegear2.packet.OffhandPlaceBlockPacket;
-import mods.battlegear2.utils.EnumBGAnimations;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
@@ -44,6 +27,22 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.relauncher.Side;
+import mods.battlegear2.Battlegear;
+import mods.battlegear2.BattlemodeHookContainerClass;
+import mods.battlegear2.api.EnchantmentHelper;
+import mods.battlegear2.api.PlayerEventChild;
+import mods.battlegear2.api.core.BattlegearUtils;
+import mods.battlegear2.api.core.IBattlePlayer;
+import mods.battlegear2.api.core.IOffhandRender;
+import mods.battlegear2.api.core.InventoryPlayerBattle;
+import mods.battlegear2.api.quiver.QuiverArrowRegistry;
+import mods.battlegear2.api.shield.IShield;
+import mods.battlegear2.api.weapons.IExtendedReachWeapon;
+import mods.battlegear2.enchantments.BaseEnchantment;
+import mods.battlegear2.packet.BattlegearAnimationPacket;
+import mods.battlegear2.packet.BattlegearShieldBlockPacket;
+import mods.battlegear2.packet.OffhandPlaceBlockPacket;
+import mods.battlegear2.utils.EnumBGAnimations;
 
 public final class BattlegearClientTickHandeler {
 

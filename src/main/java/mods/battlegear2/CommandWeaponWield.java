@@ -4,10 +4,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import mods.battlegear2.api.weapons.WeaponRegistry;
-import mods.battlegear2.packet.WieldSetPacket;
-
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.PlayerNotFoundException;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
@@ -18,6 +19,8 @@ import com.google.common.collect.Sets;
 
 import cpw.mods.fml.common.registry.GameData;
 import cpw.mods.fml.common.registry.GameRegistry;
+import mods.battlegear2.api.weapons.WeaponRegistry;
+import mods.battlegear2.packet.WieldSetPacket;
 
 /**
  * Command that can be used by op to set held/named items in the WeaponRegistry and tinker its sensitivity
