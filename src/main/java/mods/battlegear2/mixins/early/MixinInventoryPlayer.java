@@ -111,6 +111,7 @@ public abstract class MixinInventoryPlayer implements IInventoryPlayerBattle {
                     }
                 }
                 cir.setReturnValue(targetStack);
+                return;
             }
             cir.setReturnValue(null);
         }
