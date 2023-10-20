@@ -136,8 +136,8 @@ public abstract class MixinInventoryPlayer implements IInventoryPlayerBattle {
         }
     }
 
-    @Inject(method = "clearInventory", at = @At("HEAD"))
-    private void battlegear2$clearInventory(Item targetItem, int targetDamage, CallbackInfoReturnable<Integer> cir) {
+    @ModifyReturnValue(method = "clearInventory", at = @At("RETURN"))
+    private int battlegear2$clearInventory(int original, Item targetItem, int targetDamage) {
         int stacks = 0;
         for (int i = 0; i < battlegear2$extraItems.length; i++) {
             if (battlegear2$extraItems[i] != null
@@ -148,6 +148,7 @@ public abstract class MixinInventoryPlayer implements IInventoryPlayerBattle {
             }
         }
         battlegear2$isDirty = stacks > 0;
+        return original + stacks;
     }
 
     @Inject(method = "getStackInSlotOnClosing", at = @At("HEAD"), cancellable = true)
