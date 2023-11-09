@@ -47,8 +47,8 @@ public abstract class ItemWeapon extends ItemSword implements IBattlegearWeapon,
     }
 
     @Override
-    public Multimap getAttributeModifiers(ItemStack stack) {
-        Multimap map = HashMultimap.create();
+    public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack) {
+        Multimap<String, AttributeModifier> map = HashMultimap.create();
         map.put(
                 SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(),
                 new AttributeModifier(field_111210_e, "Weapon modifier", (double) this.baseDamage, 0));
@@ -56,10 +56,10 @@ public abstract class ItemWeapon extends ItemSword implements IBattlegearWeapon,
     }
 
     public float getModifiedAmount(ItemStack stack, String modifierName) {
-        Iterator itr = stack.getAttributeModifiers().get(modifierName).iterator();
+        Iterator<AttributeModifier> itr = stack.getAttributeModifiers().get(modifierName).iterator();
         float f = 0;
         while (itr.hasNext()) {
-            f += ((AttributeModifier) itr.next()).getAmount();
+            f += itr.next().getAmount();
         }
         return f;
     }

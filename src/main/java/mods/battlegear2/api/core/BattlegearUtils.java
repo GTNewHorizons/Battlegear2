@@ -73,7 +73,7 @@ public class BattlegearUtils {
     /**
      * Method arguments classes that are not allowed in {@link Item} subclasses for common wielding
      */
-    private static final Class[][] itemBlackListMethodParams = {
+    private static final Class<?>[][] itemBlackListMethodParams = {
             new Class[] { ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,
                     float.class, float.class, float.class },
             new Class[] { ItemStack.class, EntityPlayer.class, World.class, int.class, int.class, int.class, int.class,

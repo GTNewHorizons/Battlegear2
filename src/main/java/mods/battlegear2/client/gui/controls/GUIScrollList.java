@@ -78,7 +78,7 @@ public abstract class GUIScrollList {
         return p_27256_1_ >= var3 && p_27256_1_ <= var4 && var6 >= 0 && var5 >= 0 && var6 < this.getSize() ? var6 : -1;
     }
 
-    public void registerScrollButtons(List p_22240_1_, int p_22240_2_, int p_22240_3_) {
+    public void registerScrollButtons(List<GuiButton> p_22240_1_, int p_22240_2_, int p_22240_3_) {
         this.scrollUpActionId = p_22240_2_;
         this.scrollDownActionId = p_22240_3_;
     }

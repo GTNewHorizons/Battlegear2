@@ -127,7 +127,7 @@ public final class ClientProxy extends CommonProxy {
         }
         if (Battlegear.debug) {
             Item it = null;
-            for (Iterator itr = GameData.getItemRegistry().iterator(); itr.hasNext(); it = (Item) itr.next()) {
+            for (Iterator<Item> itr = GameData.getItemRegistry().iterator(); itr.hasNext(); it = itr.next()) {
                 if (it instanceof IHeraldryItem && ((IHeraldryItem) it).useDefaultRenderer()) {
                     MinecraftForgeClient.registerItemRenderer(it, new HeraldryItemRenderer());
                 }
@@ -186,7 +186,7 @@ public final class ClientProxy extends CommonProxy {
                 Vec3 vec32 = vec3.addVector(vec31.xCoord * d0, vec31.yCoord * d0, vec31.zCoord * d0);
                 Entity pointedEntity = null;
                 float f1 = 1.0F;
-                List list = mc.theWorld.getEntitiesWithinAABBExcludingEntity(
+                List<Entity> list = mc.theWorld.getEntitiesWithinAABBExcludingEntity(
                         mc.renderViewEntity,
                         mc.renderViewEntity.boundingBox
                                 .addCoord(vec31.xCoord * d0, vec31.yCoord * d0, vec31.zCoord * d0)
@@ -234,7 +234,7 @@ public final class ClientProxy extends CommonProxy {
             if ((Boolean) tcManager.getClass().getMethod("isPulseLoaded", String.class)
                     .invoke(tcManager, "Tinkers' Armory")) {
                 Class<?> tabRegistry = Class.forName("tconstruct.client.tabs.TabRegistry");
-                Class abstractTab = Class.forName("tconstruct.client.tabs.AbstractTab");
+                Class<?> abstractTab = Class.forName("tconstruct.client.tabs.AbstractTab");
                 Method registerTab = tabRegistry.getMethod("registerTab", abstractTab);
                 updateTab = tabRegistry.getMethod("updateTabValues", int.class, int.class, Class.class);
                 addTabs = tabRegistry.getMethod("addTabsToList", List.class);

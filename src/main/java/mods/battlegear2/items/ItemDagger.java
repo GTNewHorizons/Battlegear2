@@ -36,8 +36,8 @@ public class ItemDagger extends OneHandedWeapon implements IBackStabbable, IHitT
     }
 
     @Override
-    public Multimap getAttributeModifiers(ItemStack stack) {
-        Multimap map = super.getAttributeModifiers(stack);
+    public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack) {
+        Multimap<String, AttributeModifier> map = super.getAttributeModifiers(stack);
         map.put(
                 extendedReach.getAttributeUnlocalizedName(),
                 new AttributeModifier(extendReachUUID, "Reach Modifier", this.reach, 0));

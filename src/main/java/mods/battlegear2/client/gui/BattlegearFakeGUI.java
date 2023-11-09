@@ -23,7 +23,6 @@ public final class BattlegearFakeGUI extends GuiScreen {
         this.previous = parent;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public void initGui() {
         this.buttonList.clear();

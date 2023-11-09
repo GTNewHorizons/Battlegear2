@@ -114,7 +114,7 @@ public class ItemKnightArmour extends ItemArmor implements IHeraldyArmour, ISpec
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List) {
+    public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List<ItemStack> par3List) {
         ItemStack armor = new ItemStack(par1);
         setHeraldry(armor, SigilHelper.getDefault());
         par3List.add(armor);
@@ -127,7 +127,7 @@ public class ItemKnightArmour extends ItemArmor implements IHeraldyArmour, ISpec
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack armor, EntityPlayer player, List par3List, boolean par4) {
+    public void addInformation(ItemStack armor, EntityPlayer player, List<String> par3List, boolean par4) {
         super.addInformation(armor, player, par3List, par4);
         par3List.add(
                 String.format(

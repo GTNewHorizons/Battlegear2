@@ -523,7 +523,7 @@ public final class BattlegearClientEvents {
      * @param guiLeft horizontal placement parameter
      * @param guiTop  vertical placement parameter
      */
-    public static void onOpenGui(List buttons, int guiLeft, int guiTop) {
+    public static void onOpenGui(List<GuiButton> buttons, int guiLeft, int guiTop) {
         if (BattlegearConfig.enableGuiButtons) {
             int count = 0;
             for (GuiPlaceableButton tab : tabsList) {

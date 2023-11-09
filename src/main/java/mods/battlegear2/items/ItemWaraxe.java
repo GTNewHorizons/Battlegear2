@@ -27,8 +27,8 @@ public class ItemWaraxe extends OneHandedWeapon implements IPenetrateWeapon { //
     }
 
     @Override
-    public Multimap getAttributeModifiers(ItemStack stack) {
-        Multimap map = super.getAttributeModifiers(stack);
+    public Multimap<String, AttributeModifier> getAttributeModifiers(ItemStack stack) {
+        Multimap<String, AttributeModifier> map = super.getAttributeModifiers(stack);
         map.put(
                 armourPenetrate.getAttributeUnlocalizedName(),
                 new AttributeModifier(penetrateArmourUUID, "Attack Modifier", this.ignoreDamageAmount, 0));

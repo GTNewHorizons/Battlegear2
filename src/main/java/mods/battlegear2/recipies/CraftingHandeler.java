@@ -85,10 +85,10 @@ public final class CraftingHandeler {
                 }
             }
             if (!arrows.isEmpty()) {
-                Iterator itr = arrows.iterator();
+                Iterator<ItemStack> itr = arrows.iterator();
                 ItemStack drop = null;
                 while (itr.hasNext() && drop == null) {
-                    ItemStack temp = (ItemStack) itr.next();
+                    ItemStack temp = itr.next();
                     drop = ((IArrowContainer2) quiver.getItem()).addArrows(quiver, temp);
                     if (drop == null) itr.remove();
                     else temp.stackSize = drop.stackSize;

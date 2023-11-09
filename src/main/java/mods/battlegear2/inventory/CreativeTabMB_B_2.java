@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 import cpw.mods.fml.relauncher.Side;
@@ -31,7 +32,7 @@ public class CreativeTabMB_B_2 extends CreativeTabs {
 
     @Override
     @SideOnly(Side.CLIENT)
-    public void displayAllReleventItems(List list) {
+    public void displayAllReleventItems(List<ItemStack> list) {
         super.displayAllReleventItems(list);
         list.addAll(BaseEnchantment.helper.getEnchantmentBooks());
     }

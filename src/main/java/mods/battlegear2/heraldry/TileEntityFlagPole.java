@@ -137,7 +137,7 @@ public class TileEntityFlagPole extends TileEntity implements IFlagHolder {
     @Override
     public void updateEntity() {
         if (!getWorldObj().isRemote && canUpdate() && getWorldObj().rand.nextInt(100) == 0) {
-            List entities = getWorldObj().getEntitiesWithinAABB(
+            List<EntityLivingBase> entities = getWorldObj().getEntitiesWithinAABB(
                     EntityLivingBase.class,
                     AxisAlignedBB.getBoundingBox(xCoord - 3, yCoord, zCoord - 3, xCoord + 3, yCoord + 1, zCoord + 3));
             if (entities.isEmpty()) spawnUnit();

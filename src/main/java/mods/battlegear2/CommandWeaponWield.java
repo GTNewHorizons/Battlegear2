@@ -127,8 +127,9 @@ public final class CommandWeaponWield extends CommandBase {
         return false;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public List addTabCompletionOptions(ICommandSender par1ICommandSender, String[] par2ArrayOfStr) {
+    public List<String> addTabCompletionOptions(ICommandSender par1ICommandSender, String[] par2ArrayOfStr) {
         if (par2ArrayOfStr.length == 1) return getListOfStringsMatchingLastWord(par2ArrayOfStr, searchModes);
         else if (par2ArrayOfStr.length == 2) {
             if (par2ArrayOfStr[0].equals(searchModes[0]) || par2ArrayOfStr[0].equals(searchModes[1]))

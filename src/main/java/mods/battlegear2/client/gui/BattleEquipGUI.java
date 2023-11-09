@@ -16,7 +16,7 @@ import mods.battlegear2.packet.BattlegearGUIPacket;
 public final class BattleEquipGUI extends InventoryEffectRenderer {
 
     public static final ResourceLocation resource = new ResourceLocation("battlegear2", "textures/gui/Equip GUI.png");
-    public static Class equipTab;
+    public static Class<?> equipTab;
 
     /**
      * x size of the inventory window in pixels. Defined as float, passed as int
