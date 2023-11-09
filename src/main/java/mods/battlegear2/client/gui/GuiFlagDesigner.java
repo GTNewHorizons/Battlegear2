@@ -127,6 +127,8 @@ public class GuiFlagDesigner extends GuiScreen {
         this.player = player;
         fc = new JFileChooser() {
 
+            private static final long serialVersionUID = 1805438589980714881L;
+
             @Override
             protected JDialog createDialog(Component parent) throws HeadlessException {
                 // intercept the dialog created by JFileChooser

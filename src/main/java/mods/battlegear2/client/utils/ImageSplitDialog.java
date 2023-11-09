@@ -25,6 +25,7 @@ import net.minecraft.util.StatCollector;
 
 public class ImageSplitDialog extends JDialog {
 
+    private static final long serialVersionUID = 4914010465453075645L;
     private final JPanel contentPanel = new JPanel();
     private JLabel imageLabel;
 
@@ -284,6 +285,8 @@ public class ImageSplitDialog extends JDialog {
                 getRootPane().setDefaultButton(okButton);
                 okButton.addActionListener(new AbstractAction() {
 
+                    private static final long serialVersionUID = -411321897339497163L;
+
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         imageSection = image.getSubimage(
@@ -302,6 +305,8 @@ public class ImageSplitDialog extends JDialog {
                 JButton cancelButton = new JButton("Cancel");
                 buttonPane.add(cancelButton);
                 cancelButton.addActionListener(new AbstractAction() {
+
+                    private static final long serialVersionUID = 3898343682430933752L;
 
                     @Override
                     public void actionPerformed(ActionEvent e) {

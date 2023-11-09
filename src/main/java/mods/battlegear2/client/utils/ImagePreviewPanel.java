@@ -16,6 +16,7 @@ import mods.battlegear2.utils.FileExtension;
 
 public class ImagePreviewPanel extends JPanel implements PropertyChangeListener {
 
+    private static final long serialVersionUID = 2869001731552443518L;
     private int width, height;
     private ImageIcon icon;
     private Image image;

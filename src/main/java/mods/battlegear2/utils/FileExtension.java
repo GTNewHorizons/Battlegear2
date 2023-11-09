@@ -4,6 +4,8 @@ import java.io.File;
 
 public class FileExtension extends File {
 
+    private static final long serialVersionUID = -4532348553909883202L;
+
     public FileExtension(File file) {
         super(file.getAbsolutePath());
     }
