@@ -5,7 +5,6 @@ import net.minecraft.item.ItemStack;
 
 import mods.battlegear2.api.core.IInventoryPlayerBattle;
 
-@SuppressWarnings("unused")
 public class InventoryAccessHook {
 
     public static boolean setPlayerCurrentItem(EntityPlayer player, ItemStack stack) {

@@ -98,7 +98,7 @@ public class ItemBowDiamond extends ItemBow {
     }
 
     @Override
-    public EnumAction getItemUseAction(ItemStack p_77661_1_) {
+    public EnumAction getItemUseAction(ItemStack stack) {
         return EnumAction.bow;
     }
 

@@ -22,7 +22,7 @@ public abstract class MixinEntityOtherPlayerMP extends AbstractClientPlayer {
     @Shadow
     private boolean isItemInUse;
 
-    public MixinEntityOtherPlayerMP(World p_i45074_1_, GameProfile p_i45074_2_) {
+    private MixinEntityOtherPlayerMP(World p_i45074_1_, GameProfile p_i45074_2_) {
         super(p_i45074_1_, p_i45074_2_);
     }
 

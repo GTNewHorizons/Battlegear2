@@ -39,7 +39,7 @@ public abstract class MixinEntityPlayer extends EntityLivingBase implements IBat
     @Unique
     private boolean battlegear2$isShielding = false;
 
-    public MixinEntityPlayer(World p_i1594_1_) {
+    private MixinEntityPlayer(World p_i1594_1_) {
         super(p_i1594_1_);
     }
 

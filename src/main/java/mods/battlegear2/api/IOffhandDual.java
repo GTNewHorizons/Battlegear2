@@ -64,7 +64,6 @@ public interface IOffhandDual {
      */
     public boolean offhandClickBlock(PlayerInteractEvent event, ItemStack mainhandItem, ItemStack offhandItem);
 
-    @SuppressWarnings("unused")
     /**
      * No-OP
      *

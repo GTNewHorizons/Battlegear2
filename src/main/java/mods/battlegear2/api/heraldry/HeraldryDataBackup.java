@@ -7,7 +7,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 
-@SuppressWarnings("unused")
 public class HeraldryDataBackup {
 
     public static final int RED = 1;

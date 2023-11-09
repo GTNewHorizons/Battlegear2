@@ -9,6 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.LoaderState;
@@ -32,7 +34,12 @@ import mods.battlegear2.gui.BattlegearGUIHandeler;
 import mods.battlegear2.packet.BattlegearPacketHandeler;
 import mods.battlegear2.utils.BattlegearConfig;
 
-@Mod(modid = Battlegear.MODID, version = Tags.VERSION, guiFactory = "mods.battlegear2.gui.BattlegearGuiFactory")
+@Mod(
+        acceptedMinecraftVersions = "[1.7.10]",
+        modid = Battlegear.MODID,
+        name = "Mine & Blade Battlegear 2",
+        version = Tags.VERSION,
+        guiFactory = "mods.battlegear2.gui.BattlegearGuiFactory")
 public class Battlegear {
 
     public static final String MODID = "battlegear2";
@@ -52,7 +59,7 @@ public class Battlegear {
     public static boolean battlegearEnabled = true;
     public static boolean debug = false;
 
-    public static org.apache.logging.log4j.Logger logger;
+    public static Logger logger;
     public static BattlegearPacketHandeler packetHandler;
 
     @Mod.EventHandler
@@ -90,6 +97,7 @@ public class Battlegear {
         event.registerServerCommand(CommandWeaponWield.INSTANCE);
     }
 
+    @SuppressWarnings("unchecked")
     @Mod.EventHandler
     public void onMessage(IMCEvent event) {
         boolean success;
@@ -130,12 +138,13 @@ public class Battlegear {
                         if (clazz != null) { // The given class should implement the interface according to the key
                             if (message.key.equals("QuiverSelection")
                                     && IQuiverSelection.class.isAssignableFrom(clazz)) {
-                                QuiverArrowRegistry.addQuiverSelection((IQuiverSelection) clazz.newInstance());
+                                QuiverArrowRegistry
+                                        .addQuiverSelection((IQuiverSelection) clazz.getConstructor().newInstance());
                                 success = true;
                             } else if (message.key.equals("FireHandler")
                                     && IArrowFireHandler.class.isAssignableFrom(clazz)) {
-                                        QuiverArrowRegistry
-                                                .addArrowFireHandler((IArrowFireHandler) clazz.newInstance());
+                                        QuiverArrowRegistry.addArrowFireHandler(
+                                                (IArrowFireHandler) clazz.getConstructor().newInstance());
                                         success = true;
                                     }
                         }
