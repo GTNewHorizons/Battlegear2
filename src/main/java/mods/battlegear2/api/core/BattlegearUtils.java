@@ -251,6 +251,7 @@ public class BattlegearUtils {
      * @param wielder The player trying to wield this item
      * @return true if the item is allowed in left hand
      */
+    @SuppressWarnings("deprecation")
     public static boolean isOffHand(ItemStack off, EntityPlayer wielder) {
         if (off == null) return true;
         else if (off.getItem() instanceof IOffhandDual) // An item using the API

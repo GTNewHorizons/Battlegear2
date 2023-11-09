@@ -238,11 +238,15 @@ public final class ClientProxy extends CommonProxy {
                 Method registerTab = tabRegistry.getMethod("registerTab", abstractTab);
                 updateTab = tabRegistry.getMethod("updateTabValues", int.class, int.class, Class.class);
                 addTabs = tabRegistry.getMethod("addTabsToList", List.class);
-                registerTab
-                        .invoke(null, Class.forName("mods.battlegear2.client.gui.controls.EquipGearTab").newInstance());
+                registerTab.invoke(
+                        null,
+                        Class.forName("mods.battlegear2.client.gui.controls.EquipGearTab").getConstructor()
+                                .newInstance());
                 if (Battlegear.debug) {
-                    registerTab
-                            .invoke(null, Class.forName("mods.battlegear2.client.gui.controls.SigilTab").newInstance());
+                    registerTab.invoke(
+                            null,
+                            Class.forName("mods.battlegear2.client.gui.controls.SigilTab").getConstructor()
+                                    .newInstance());
                 }
                 tconstructEnabled = true;
             }

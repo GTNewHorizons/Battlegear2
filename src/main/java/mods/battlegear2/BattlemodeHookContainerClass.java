@@ -245,6 +245,7 @@ public final class BattlemodeHookContainerClass {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onOffhandAttack(PlayerEventChild.OffhandAttackEvent event) {
         if (event.offHand != null) {
@@ -272,6 +273,7 @@ public final class BattlemodeHookContainerClass {
         }
     }
 
+    @SuppressWarnings("deprecation")
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onOffhandUse(PlayerEventChild.UseOffhandItemEvent offhandItemEvent) {
         if (offhandItemEvent.offhand != null) {

@@ -369,6 +369,7 @@ public class BattlegearConfig {
         // Weapon recipes
         String woodStack = "plankWood";
         for (int i = 0; i < 5; i++) {
+            @SuppressWarnings("deprecation")
             ItemStack craftingMaterial = new ItemStack(
                     ToolMaterial.values()[i].func_150995_f(),
                     1,

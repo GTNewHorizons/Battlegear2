@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.inventory.GuiContainerCreative;
 import net.minecraft.client.model.ModelBiped;
@@ -354,7 +355,7 @@ public final class BattlegearClientEvents {
                 if (block.isAir(world, x, y, z)) {
                     return null;
                 }
-                return block.getPickBlock(target, world, x, y, z); // TODO support newer version
+                return block.getPickBlock(target, world, x, y, z, player);
             } else {
                 if (target.typeOfHit != MovingObjectPosition.MovingObjectType.ENTITY || target.entityHit == null
                         || !player.capabilities.isCreativeMode) {
@@ -474,6 +475,7 @@ public final class BattlegearClientEvents {
         }
     }
 
+    @SuppressWarnings("unchecked")
     @SubscribeEvent(priority = EventPriority.LOW)
     public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
         if (Battlegear.battlegearEnabled && event.gui instanceof InventoryEffectRenderer) {
