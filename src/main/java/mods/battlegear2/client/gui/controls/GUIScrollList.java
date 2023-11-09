@@ -13,7 +13,6 @@ public abstract class GUIScrollList {
     protected final int listWidth;
     protected final int top;
     protected final int bottom;
-    private final int right;
     protected final int left;
     protected final int slotHeight;
     private int scrollUpActionId;
@@ -36,7 +35,6 @@ public abstract class GUIScrollList {
         this.bottom = bottom;
         this.slotHeight = entryHeight;
         this.left = left;
-        this.right = width + this.left;
     }
 
     public void func_27258_a(boolean p_27258_1_) {
@@ -303,8 +301,6 @@ public abstract class GUIScrollList {
      * Draws a textured rectangle at the stored z-value. Args: x, y, u, v, width, height
      */
     public void drawTexturedModalRect(Tessellator tessellator, int x, int y, int width, int height, int zLevel) {
-        float f = 0.00390625F;
-        float f1 = 0.00390625F;
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV((double) (x + 0), (double) (y + height), (double) zLevel, 0F, 1F);
         tessellator.addVertexWithUV((double) (x + width), (double) (y + height), (double) zLevel, 1F, 1F);

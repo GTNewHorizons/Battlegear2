@@ -8,7 +8,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 
@@ -99,7 +98,6 @@ public class HeraldryCrestItemRenderer implements IItemRenderer {
         Minecraft.getMinecraft().getTextureManager().bindTexture(map_overlay);
         BattlegearRenderHelper.renderTexturedQuad(0, 0, itemRenderer.zLevel, 16, 16);
 
-        IIcon icon = heraldryItem.getBaseIcon(item);
         itemRenderer.zLevel += 100;
         glPushMatrix();
         RefreshableTexture currentCrest = new RefreshableTexture(32, 32);

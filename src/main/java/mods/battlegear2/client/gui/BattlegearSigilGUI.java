@@ -275,8 +275,6 @@ public class BattlegearSigilGUI extends GuiContainer {
      */
     public void drawTexturedModalRect(int x, int y, int width, int height, int tex_x, int tex_y, int tex_width,
             int tex_height) {
-        float f = 0.00390625F;
-        float f1 = 0.00390625F;
         Tessellator tessellator = Tessellator.instance;
         tessellator.startDrawingQuads();
         tessellator.addVertexWithUV(

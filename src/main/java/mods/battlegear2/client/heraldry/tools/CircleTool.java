@@ -28,9 +28,6 @@ public class CircleTool extends RectangleTool {
         float x_rad = (maxX - minX) / 2F;
         float y_rad = (maxY - minY) / 2F;
 
-        float x_rad_sq = x_rad * x_rad;
-        float y_rad_sq = y_rad * y_rad;
-
         for (float time = 0; time < Math.PI / 2; time += 0.05F) {
             plotPoint(
                     (int) Math.round((x_mid + x_rad * Math.cos(time))),
@@ -64,7 +61,6 @@ public class CircleTool extends RectangleTool {
         float y_rad = (maxY - minY) / 2F;
 
         float x_r_sq = x_rad * x_rad;
-        float y_r_sq = y_rad * y_rad;
 
         int last_x = 0;
         float last_y = y_rad;

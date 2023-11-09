@@ -40,13 +40,6 @@ public class SigilHelper {
         return (int) ((code << (63 - end)) >>> (63 + begin - end));
     }
 
-    private static Color getColourFromBeginIndex(long code, int beginIndex) {
-        return new Color(
-                ((extractBit(code, beginIndex + 8, beginIndex + 11) + 1) * 16 - 1),
-                ((extractBit(code, beginIndex + 4, beginIndex + 7) + 1) * 16 - 1),
-                ((extractBit(code, beginIndex, beginIndex + 3) + 1) * 16 - 1));
-    }
-
     // TODO: Still have to test this
     public static byte getHelm(byte[] code) {
         return (byte) (code[0] >> 2 & 3);

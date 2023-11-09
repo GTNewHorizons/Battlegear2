@@ -13,7 +13,6 @@ public class GuiToggleButton extends GuiButton {
             "battlegear2",
             "textures/gui/widgets-extra.png");
     private boolean isSelected = false;
-    private GuiToggleButton[] siblingButtons;
 
     public GuiToggleButton(int id, int x, int y, String label, FontRenderer font) {
         this(id, x, y, font.getStringWidth(label) + 10, 20, label);
@@ -21,7 +20,6 @@ public class GuiToggleButton extends GuiButton {
 
     public GuiToggleButton(int id, int x, int y, int width, int height, String label) {
         super(id, x, y, width, height, label);
-        siblingButtons = new GuiToggleButton[0];
     }
 
     public void setSelected(boolean b) {
@@ -32,9 +30,8 @@ public class GuiToggleButton extends GuiButton {
         return isSelected;
     }
 
-    public void setSiblings(GuiToggleButton[] buttons) {
-        this.siblingButtons = buttons;
-    }
+    @Deprecated
+    public void setSiblings(GuiToggleButton[] buttons) {}
 
     @Override
     public void drawButton(Minecraft par1Minecraft, int par2, int par3) {
