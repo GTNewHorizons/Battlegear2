@@ -151,6 +151,8 @@ public class ShieldRenderer implements IItemRenderer {
                 GL11.glDisable(GL11.GL_BLEND);
                 if (item.hasEffect(0)) itemRenderer.renderEffect(Minecraft.getMinecraft().getTextureManager(), 0, 0);
                 break;
+            default:
+                break;
         }
         BattlegearRenderHelper.renderArrows(item, type == ItemRenderType.ENTITY);
 

@@ -50,6 +50,8 @@ public class HeraldryCrestItemRenderer implements IItemRenderer {
                 break;
             case FIRST_PERSON_MAP:
                 doMapRendering(item, new HeraldryData(heraldryData), ((IHeraldryItem) item.getItem()));
+            default:
+                break;
         }
     }
 

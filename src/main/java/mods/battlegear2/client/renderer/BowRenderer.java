@@ -40,6 +40,8 @@ public class BowRenderer implements IItemRenderer {
             case EQUIPPED:
                 renderEquippedBow(item, (EntityLivingBase) data[1], false);
                 break;
+            default:
+                break;
         }
     }
 

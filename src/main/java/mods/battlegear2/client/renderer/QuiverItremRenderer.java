@@ -119,6 +119,8 @@ public class QuiverItremRenderer implements IItemRenderer {
                             8F / 256F);
                 }
                 break;
+            default:
+                break;
         }
         GL11.glPopMatrix();
     }

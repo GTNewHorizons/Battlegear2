@@ -237,6 +237,8 @@ public class FlagPoleItemRenderer implements IItemRenderer {
                 tess.draw();
 
                 break;
+            default:
+                break;
         }
     }
 }

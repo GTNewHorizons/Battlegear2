@@ -41,10 +41,8 @@ public class HeraldryItemRenderer implements IItemRenderer {
 
         byte[] heraldryData = ((IHeraldryItem) item.getItem()).getHeraldry(item);
 
-        switch (type) {
-            case INVENTORY:
-                doInventoryRendering(item, new HeraldryData(heraldryData), ((IHeraldryItem) item.getItem()));
-                break;
+        if (type == ItemRenderType.INVENTORY) {
+            doInventoryRendering(item, new HeraldryData(heraldryData), ((IHeraldryItem) item.getItem()));
         }
     }
 
