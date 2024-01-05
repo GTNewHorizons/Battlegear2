@@ -11,20 +11,20 @@ import net.minecraft.launchwrapper.IClassTransformer;
 import net.minecraft.launchwrapper.Launch;
 
 import org.apache.commons.io.FileUtils;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassWriter;
-import org.objectweb.asm.Opcodes;
-import org.objectweb.asm.tree.AbstractInsnNode;
-import org.objectweb.asm.tree.ClassNode;
-import org.objectweb.asm.tree.FieldInsnNode;
-import org.objectweb.asm.tree.InsnList;
-import org.objectweb.asm.tree.InsnNode;
-import org.objectweb.asm.tree.JumpInsnNode;
-import org.objectweb.asm.tree.LabelNode;
-import org.objectweb.asm.tree.MethodInsnNode;
-import org.objectweb.asm.tree.MethodNode;
-import org.objectweb.asm.tree.VarInsnNode;
-import org.spongepowered.asm.mixin.transformer.ClassInfo;
+import org.spongepowered.asm.lib.ClassReader;
+import org.spongepowered.asm.lib.ClassWriter;
+import org.spongepowered.asm.lib.Opcodes;
+import org.spongepowered.asm.lib.tree.AbstractInsnNode;
+import org.spongepowered.asm.lib.tree.ClassNode;
+import org.spongepowered.asm.lib.tree.FieldInsnNode;
+import org.spongepowered.asm.lib.tree.InsnList;
+import org.spongepowered.asm.lib.tree.InsnNode;
+import org.spongepowered.asm.lib.tree.JumpInsnNode;
+import org.spongepowered.asm.lib.tree.LabelNode;
+import org.spongepowered.asm.lib.tree.MethodInsnNode;
+import org.spongepowered.asm.lib.tree.MethodNode;
+import org.spongepowered.asm.lib.tree.VarInsnNode;
+import org.spongepowered.asm.transformers.MixinClassWriter;
 
 import mods.battlegear2.asm.MethodMapping;
 import mods.battlegear2.asm.loader.BattlegearLoadingPlugin;
@@ -55,7 +55,7 @@ import mods.battlegear2.asm.loader.BattlegearLoadingPlugin;
  *
  * @author Alexdoru
  */
-public class InventoryArrayAccessTransformer implements IClassTransformer {
+public class InventoryArrayAccessTransformer implements IClassTransformer, Opcodes {
 
     private File outputDir = null;
     private final Map<String, MethodMapping> targetClassesAndMethods = new HashMap<>();
@@ -84,27 +84,13 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
             final ClassReader classReader = new ClassReader(basicClass);
             classReader.accept(classNode, 0);
             transform(classNode, targetClassesAndMethods.get(transformedName));
-            final ClassWriter classWriter = new SafeClassWriter(ClassWriter.COMPUTE_FRAMES);
+            final ClassWriter classWriter = new MixinClassWriter(ClassWriter.COMPUTE_MAXS | ClassWriter.COMPUTE_FRAMES);
             classNode.accept(classWriter);
             basicClass = classWriter.toByteArray();
             saveTransformedClass(basicClass, transformedName + "_post");
             return basicClass;
         }
         return basicClass;
-    }
-
-    private static class SafeClassWriter extends ClassWriter {
-
-        public SafeClassWriter(int flags) {
-            super(flags);
-        }
-
-        // we use this implementation because the default implementation
-        // triggers classloading, and we don't want that
-        @Override
-        protected String getCommonSuperClass(String type1, String type2) {
-            return ClassInfo.getCommonSuperClass(type1, type2).getName();
-        }
     }
 
     private static void transform(ClassNode classNode, MethodMapping targetMethod) {
@@ -177,7 +163,7 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
             if (isLoadPlayerNode(insnNode)) {
                 final boolean isPlayerField = insnNode instanceof FieldInsnNode;
                 final AbstractInsnNode prevNode = insnNode.getPrevious();
-                if (isPlayerField && !(prevNode instanceof VarInsnNode && prevNode.getOpcode() == Opcodes.ALOAD
+                if (isPlayerField && !(prevNode instanceof VarInsnNode && prevNode.getOpcode() == ALOAD
                         && ((VarInsnNode) prevNode).var == 0)) {
                     continue;
                 }
@@ -187,8 +173,7 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
                     if (isMainInventoryFieldNode(thirdNode)) {
                         final AbstractInsnNode fourthNode;
                         if (isPlayerField) {
-                            if (!(thirdNode.getNext() instanceof VarInsnNode
-                                    && thirdNode.getNext().getOpcode() == Opcodes.ALOAD
+                            if (!(thirdNode.getNext() instanceof VarInsnNode && thirdNode.getNext().getOpcode() == ALOAD
                                     && ((VarInsnNode) thirdNode.getNext()).var == 0)) {
                                 continue;
                             }
@@ -203,11 +188,11 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
                                 if (isCurrentItemFieldNode(sixthNode)) {
                                     final InsnList loadItemStackInsnList = new InsnList();
                                     AbstractInsnNode node = sixthNode.getNext();
-                                    while (node != null && node.getOpcode() != Opcodes.AASTORE) {
+                                    while (node != null && node.getOpcode() != AASTORE) {
                                         loadItemStackInsnList.add(node.clone(null));
                                         node = node.getNext();
                                     }
-                                    if (node instanceof InsnNode && node.getOpcode() == Opcodes.AASTORE) {
+                                    if (node instanceof InsnNode && node.getOpcode() == AASTORE) {
                                         final LabelNode label = new LabelNode();
                                         final InsnList list = new InsnList();
                                         AbstractInsnNode firstNode = insnNode;
@@ -220,14 +205,14 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
                                         list.add(loadItemStackInsnList);
                                         list.add(
                                                 new MethodInsnNode(
-                                                        Opcodes.INVOKESTATIC,
+                                                        INVOKESTATIC,
                                                         "mods/battlegear2/asm/hooks/InventoryAccessHook",
                                                         "setPlayerCurrentItem",
                                                         deobf(
                                                                 "(Lyz;Ladd;)Z",
                                                                 "(Lnet/minecraft/entity/player/EntityPlayer;Lnet/minecraft/item/ItemStack;)Z"),
                                                         false));
-                                        list.add(new JumpInsnNode(Opcodes.IFNE, label));
+                                        list.add(new JumpInsnNode(IFNE, label));
                                         instructions.insertBefore(firstNode, list);
                                         instructions.insert(node, label);
                                         injectionCount++;
@@ -262,7 +247,7 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
         for (final AbstractInsnNode insnNode : list.toArray()) {
             if (isMainInventoryFieldNode(insnNode)) {
                 final AbstractInsnNode secondNode = insnNode.getNext();
-                if (secondNode instanceof VarInsnNode && secondNode.getOpcode() == Opcodes.ALOAD
+                if (secondNode instanceof VarInsnNode && secondNode.getOpcode() == ALOAD
                         && ((VarInsnNode) secondNode).var == 0) {
                     final AbstractInsnNode thirdNode = secondNode.getNext();
                     if (isLoadPlayerNode(thirdNode)) {
@@ -271,11 +256,11 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
                             final AbstractInsnNode fifthNode = fourthNode.getNext();
                             if (isCurrentItemFieldNode(fifthNode)) {
                                 final AbstractInsnNode sixthNode = fifthNode.getNext();
-                                if (sixthNode instanceof InsnNode && sixthNode.getOpcode() == Opcodes.AALOAD) {
+                                if (sixthNode instanceof InsnNode && sixthNode.getOpcode() == AALOAD) {
                                     list.insertBefore(
                                             insnNode,
                                             new MethodInsnNode(
-                                                    Opcodes.INVOKEVIRTUAL,
+                                                    INVOKEVIRTUAL,
                                                     deobf("yx", "net/minecraft/entity/player/InventoryPlayer"),
                                                     deobf("h", "getCurrentItem"),
                                                     deobf("()Ladd;", "()Lnet/minecraft/item/ItemStack;"),
@@ -296,13 +281,13 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
     }
 
     private static boolean isLoadPlayerNode(AbstractInsnNode node) {
-        return (node instanceof VarInsnNode && node.getOpcode() == Opcodes.ALOAD)
-                || (node instanceof FieldInsnNode && node.getOpcode() == Opcodes.GETFIELD
+        return (node instanceof VarInsnNode && node.getOpcode() == ALOAD)
+                || (node instanceof FieldInsnNode && node.getOpcode() == GETFIELD
                         && ((FieldInsnNode) node).owner.equals(deobf("bao", "net/minecraft/client/Minecraft"))
                         && ((FieldInsnNode) node).name.equals(deobf("h", "thePlayer"))
                         && ((FieldInsnNode) node).desc
                                 .equals(deobf("Lbjk;", "Lnet/minecraft/client/entity/EntityClientPlayerMP;"))
-                        || (node instanceof FieldInsnNode && node.getOpcode() == Opcodes.GETFIELD
+                        || (node instanceof FieldInsnNode && node.getOpcode() == GETFIELD
                                 && ((FieldInsnNode) node).owner
                                         .equals(deobf("nh", "net/minecraft/network/NetHandlerPlayServer"))
                                 && ((FieldInsnNode) node).name.equals(deobf("b", "playerEntity"))
@@ -311,7 +296,7 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
     }
 
     private static boolean isPlayerInventoryFieldNode(AbstractInsnNode node) {
-        return node instanceof FieldInsnNode && node.getOpcode() == Opcodes.GETFIELD
+        return node instanceof FieldInsnNode && node.getOpcode() == GETFIELD
                 && (((FieldInsnNode) node).owner.equals(deobf("yz", "net/minecraft/entity/player/EntityPlayer"))
                         || ((FieldInsnNode) node).owner
                                 .equals(deobf("bll", "net/minecraft/client/entity/EntityOtherPlayerMP"))
@@ -324,14 +309,14 @@ public class InventoryArrayAccessTransformer implements IClassTransformer {
     }
 
     private static boolean isMainInventoryFieldNode(AbstractInsnNode node) {
-        return node instanceof FieldInsnNode && node.getOpcode() == Opcodes.GETFIELD
+        return node instanceof FieldInsnNode && node.getOpcode() == GETFIELD
                 && ((FieldInsnNode) node).owner.equals(deobf("yx", "net/minecraft/entity/player/InventoryPlayer"))
                 && ((FieldInsnNode) node).name.equals(deobf("a", "mainInventory"))
                 && ((FieldInsnNode) node).desc.equals(deobf("[Ladd;", "[Lnet/minecraft/item/ItemStack;"));
     }
 
     private static boolean isCurrentItemFieldNode(AbstractInsnNode node) {
-        return node instanceof FieldInsnNode && node.getOpcode() == Opcodes.GETFIELD
+        return node instanceof FieldInsnNode && node.getOpcode() == GETFIELD
                 && ((FieldInsnNode) node).owner.equals(deobf("yx", "net/minecraft/entity/player/InventoryPlayer"))
                 && ((FieldInsnNode) node).name.equals(deobf("c", "currentItem"))
                 && ((FieldInsnNode) node).desc.equals("I");
