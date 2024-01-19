@@ -296,48 +296,6 @@ public final class BattlegearClientEvents {
     }
 
     /**
-     * Fixes pick block
-     */
-    @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public void replacePickBlock(MouseEvent event) {
-        if (event.buttonstate) {
-            Minecraft mc = FMLClientHandler.instance().getClient();
-            if (mc.thePlayer != null) {
-                if (event.button - 100 == mc.gameSettings.keyBindPickBlock.getKeyCode()) {
-                    event.setCanceled(true);
-                    if (!((IBattlePlayer) mc.thePlayer).battlegear2$isBattlemode()) {
-                        boolean isCreative = mc.thePlayer.capabilities.isCreativeMode;
-                        ItemStack stack = getItemFromPointedAt(mc.objectMouseOver, mc.thePlayer);
-                        if (stack != null) {
-                            int k = -1;
-                            ItemStack temp;
-                            for (int slot = 0; slot < MAIN_INV; slot++) {
-                                temp = mc.thePlayer.inventory.getStackInSlot(slot);
-                                if (temp != null && stack.isItemEqual(temp)
-                                        && ItemStack.areItemStackTagsEqual(stack, temp)) {
-                                    k = slot;
-                                    break;
-                                }
-                            }
-                            if (isCreative && k == -1) {
-                                k = mc.thePlayer.inventory.getFirstEmptyStack();
-                                if (k < 0 || k >= MAIN_INV) {
-                                    k = mc.thePlayer.inventory.currentItem;
-                                }
-                            }
-                            if (k >= 0 && k < MAIN_INV) {
-                                mc.thePlayer.inventory.currentItem = k;
-                                Battlegear.packetHandler
-                                        .sendPacketToServer(new PickBlockPacket(stack, k).generatePacket());
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /**
      * Equivalent code to the creative pick block
      *
      * @param target The client target vector
