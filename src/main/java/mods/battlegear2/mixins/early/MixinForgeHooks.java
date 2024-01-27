@@ -21,7 +21,7 @@ public class MixinForgeHooks {
     @Inject(method = "onPickBlock", at = @At(value = "HEAD"), cancellable = true)
     private static void battlegear2$onPickBlock(MovingObjectPosition target, EntityPlayer player, World world,
             CallbackInfoReturnable<Boolean> cir) {
-        if (player.capabilities.isCreativeMode && ((IBattlePlayer) player).battlegear2$isBattlemode()) {
+        if (((IBattlePlayer) player).battlegear2$isBattlemode()) {
             cir.setReturnValue(false);
         }
     }
