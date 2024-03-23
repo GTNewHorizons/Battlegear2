@@ -435,8 +435,7 @@ public final class BattlegearClientEvents {
     @SubscribeEvent(priority = EventPriority.LOW)
     public void postInitGui(GuiScreenEvent.InitGuiEvent.Post event) {
         if (Battlegear.battlegearEnabled && event.gui instanceof InventoryEffectRenderer) {
-            if (!ClientProxy.tconstructEnabled
-                    || FMLClientHandler.instance().getClientPlayerEntity().capabilities.isCreativeMode) {
+            if (!ClientProxy.tconstructEnabled) {
                 onOpenGui(
                         event.buttonList,
                         guessGuiLeft((InventoryEffectRenderer) event.gui) - 30,
