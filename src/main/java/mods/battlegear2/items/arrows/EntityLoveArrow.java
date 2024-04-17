@@ -54,7 +54,7 @@ public class EntityLoveArrow extends AbstractMBArrow {
             } else if (entityHit instanceof EntityCreature) {
                 ((EntityCreature) entityHit).setTarget(null);
                 if (((EntityCreature) entityHit).getHeldItem() == null) {
-                    entityHit.setCurrentItemOrArmor(0, new ItemStack(ItemMBArrow.component[5]));
+                    entityHit.setCurrentItemOrArmor(0, new ItemStack(ItemMBArrow.component[7]));
                 }
                 setDead();
                 return true;
@@ -70,7 +70,7 @@ public class EntityLoveArrow extends AbstractMBArrow {
                 if (!((IBattlePlayer) entityHit).battlegear2$isBattlemode())
                     ((EntityPlayer) entityHit).inventory.setInventorySlotContents(
                             ((EntityPlayer) entityHit).inventory.currentItem,
-                            new ItemStack(ItemMBArrow.component[5]));
+                            new ItemStack(ItemMBArrow.component[7]));
                 setDead();
                 return true;
             }
