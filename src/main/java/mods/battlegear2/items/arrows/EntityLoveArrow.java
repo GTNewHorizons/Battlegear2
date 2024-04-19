@@ -6,13 +6,13 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
 import mods.battlegear2.api.core.IBattlePlayer;
-import mods.battlegear2.items.ItemMBArrow;
 
 /**
  * An arrow which deals weird effects on living entities
@@ -54,7 +54,7 @@ public class EntityLoveArrow extends AbstractMBArrow {
             } else if (entityHit instanceof EntityCreature) {
                 ((EntityCreature) entityHit).setTarget(null);
                 if (((EntityCreature) entityHit).getHeldItem() == null) {
-                    entityHit.setCurrentItemOrArmor(0, new ItemStack(ItemMBArrow.component[7]));
+                    entityHit.setCurrentItemOrArmor(0, new ItemStack(Items.cookie));
                 }
                 setDead();
                 return true;
@@ -70,7 +70,7 @@ public class EntityLoveArrow extends AbstractMBArrow {
                 if (!((IBattlePlayer) entityHit).battlegear2$isBattlemode())
                     ((EntityPlayer) entityHit).inventory.setInventorySlotContents(
                             ((EntityPlayer) entityHit).inventory.currentItem,
-                            new ItemStack(ItemMBArrow.component[7]));
+                            new ItemStack(Items.cookie));
                 setDead();
                 return true;
             }
