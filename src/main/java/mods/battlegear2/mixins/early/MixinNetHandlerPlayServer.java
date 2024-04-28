@@ -1,18 +1,21 @@
 package mods.battlegear2.mixins.early;
 
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.ItemStack;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement;
-import net.minecraft.world.WorldServer;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Share;
+import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 
 import mods.battlegear2.api.core.IInventoryPlayerBattle;
 
@@ -30,6 +33,18 @@ public class MixinNetHandlerPlayServer {
         return IInventoryPlayerBattle.isValidSwitch(original) ? 0 : -1;
     }
 
+    @WrapOperation(
+            method = "processPlayerBlockPlacement",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Lnet/minecraft/inventory/Container;getSlotFromInventory(Lnet/minecraft/inventory/IInventory;I)Lnet/minecraft/inventory/Slot;"))
+    private Slot battlegear2$captureSlotVariable(Container instance, IInventory j, int i, Operation<Slot> original,
+            @Share("slot") LocalRef<Slot> slotRef) {
+        Slot slot = original.call(instance, j, i);
+        slotRef.set(slot);
+        return slot;
+    }
+
     @Inject(
             method = "processPlayerBlockPlacement",
             at = @At(
@@ -37,11 +52,10 @@ public class MixinNetHandlerPlayServer {
                     target = "Lnet/minecraft/entity/player/EntityPlayerMP;isChangingQuantityOnly:Z",
                     shift = At.Shift.AFTER,
                     ordinal = 1),
-            locals = LocalCapture.CAPTURE_FAILSOFT,
             cancellable = true)
-    private void battlegear2$fixNPE(C08PacketPlayerBlockPlacement packetIn, CallbackInfo ci, WorldServer worldserver,
-            ItemStack itemstack, boolean flag, boolean placeResult, int i, int j, int k, int l, Slot slot) {
-        if (slot == null) {
+    private void battlegear2$fixNPE(C08PacketPlayerBlockPlacement packetIn, CallbackInfo ci,
+            @Share("slot") LocalRef<Slot> slotRef) {
+        if (slotRef.get() == null) {
             ci.cancel();
         }
     }
