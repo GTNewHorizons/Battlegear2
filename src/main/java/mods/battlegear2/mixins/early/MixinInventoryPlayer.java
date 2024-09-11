@@ -211,10 +211,9 @@ public abstract class MixinInventoryPlayer implements IInventoryPlayerBattle {
     @Inject(
             method = "readFromNBT",
             at = @At(
-                    value = "INVOKE",
+                    value = "INVOKE_ASSIGN",
                     target = "Lnet/minecraft/item/ItemStack;loadItemStackFromNBT(Lnet/minecraft/nbt/NBTTagCompound;)Lnet/minecraft/item/ItemStack;",
-                    shift = At.Shift.BY,
-                    by = 2),
+                    shift = At.Shift.AFTER),
             locals = LocalCapture.CAPTURE_FAILHARD)
     private void battlegear2$readFromNBT$setItems(NBTTagList p_70443_1_, CallbackInfo ci, int i,
             NBTTagCompound nbttagcompound, int j, ItemStack stack) {

@@ -5,9 +5,6 @@
   "refmap": "mixins.battlegear2.refmap.json",
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
-  "injectors": {
-    "maxShiftBy": 2
-  },
   "mixins": [],
   "client": [],
   "server": []
